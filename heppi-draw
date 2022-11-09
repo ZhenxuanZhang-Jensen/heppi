@@ -4,6 +4,7 @@ from optparse   import OptionParser
 from heppi      import heppi
 from termcolor  import colored
 import ROOT, logging, sys, logging, time
+import io
 
 logging.basicConfig(format=colored('%(levelname)s:',attrs = ['bold'])
                     + colored('%(name)s:','blue') + ' %(message)s')
@@ -71,12 +72,12 @@ if __name__ == "__main__":
     (opt, args) = get_options()
     stack = None
     try:
-        f = open(opt.plotcard)
+        f = io.open(opt.plotcard)
         stack = heppi.instack(  plotcard  = opt.plotcard  ,
                                 sampledir = opt.sampledir ,
                                 outdir = opt.outdir    )
     except IOError as e:
-        print "I/O error({0}): {1}".format(e.errno, e.strerror)
+        print "I/O error({0}): {1}".format(e.error, e.strerror)
         
     stack.read_plotcard()
     stack.book_trees(make_sig_bkg_trees=opt.scatter)
@@ -156,6 +157,8 @@ if __name__ == "__main__":
                     if opt.allnormhist : stack.variables[opt.variable].norm = True
                     stack.options.label.append(cat.get('label'))
                     _cuts_ = cat.get('operator','&&').join(cat.get('cut')) if type(cat.get('cut')) == type([]) else cat.get('cut')
+                    logging.info(colored("print the variable name %s" % opt.variable))
+                    print("debug: _cuts_", _cuts_)
                     stack.draw( varkey = opt.variable,
                                 label  = opt.label+'_'+cat.get('name'),
                                 select = _cuts_ )

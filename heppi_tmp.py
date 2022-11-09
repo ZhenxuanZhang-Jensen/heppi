@@ -23,7 +23,6 @@ except ImportError:
 import  glob, json, re, logging, collections, math, parser
 from    collections        import OrderedDict
 import  settings
-from os import system, path #FIXME
 
 logging.basicConfig(format=colored('%(levelname)s:',attrs = ['bold'])
                     + colored('%(name)s:','blue') + ' %(message)s')
@@ -63,9 +62,7 @@ class utils:
                 stmp = cut.split('>')
                 if len(stmp) == 1:
                     stmp = cut.split('<')
-                print 'ED DEBUG stmp %s'%stmp
-                #cut = eval(parser.expr(stmp[1]).compile()) #ED DEBUG
-                cut = float(stmp[1])
+                cut = eval(parser.expr(stmp[1]).compile())
                 line = ROOT.TLine()
                 line.SetLineColor(settings.cut_line_color)
                 line.SetLineStyle(settings.cut_line_style)
@@ -175,6 +172,7 @@ class variable(object):
         self.__dict__.update(options)
         self.name     = name
         self.formula  = self.name
+        print "checking ->> self.formula = ", self.formula
         if ':=' in self.formula:
             self.name     = self.formula.split(':=')[0]
             self.formula  = self.formula.split(':=')[1]
@@ -313,7 +311,7 @@ class options (object):
             "kfactor"       :  1.0,
             "intlumi"       :  1.0,
             "cutflow"       : [ "" ],
-            "weight_branch" : "weight",
+            "weight_branch" : "",
             "categories"    : []
         }
         self.__dict__  = self.__template__
@@ -363,8 +361,6 @@ class instack ():
         self.sig_root_tree  = ROOT.TChain('sig_data')
         self.bkg_root_tree  = ROOT.TChain('bkg_data')
         self.outdir = outdir
-        if self.outdir.endswith('/'): self.outdir = self.outdir[:-1]
-        if not path.isdir(self.outdir): system('mkdir -p %s'%self.outdir)
     def set_samples_directory(self,directory = "{PWD}"):
         self.sampledir = directory
     def read_plotcard(self):
@@ -414,12 +410,12 @@ class instack ():
         _samples_ = []
         for proc,sample in self.samples.items():
             print "SCZ",sample,sample.files
-            print("sample.tree=", sample.tree)
             chainName = ""
             if sample.tree == "":
                 chainName = str(self.options.treename).format(sampleid = sample.name)
             else:
                 chainName = str(self.options.treename).format(sampleid = sample.tree)
+            print("sample.tree \n", sample.tree)
             chain = ROOT.TChain(chainName)
             _chain_up_list_ = []
             _chain_dw_list_ = []
@@ -459,10 +455,11 @@ class instack ():
                     _sam_ = sam.split(':')[0]
                     _tre_ = sam.split(':')[1]
                 print "SCZ2",_sam_,_tre_
+                print("debug: the self.sampledir", self.sampledir)
                 if len(_sam_) == 0:
                     raise Exception,"sample name has length 0"
                 for f in glob.glob( self.sampledir + '/*'+ _sam_ +'*.root'):
-                    print "Adding %s for sample %s" % (f + '/' + _tre_,_sam_)
+                    print "Adding %s for sample %s" % (f + '/' + _tre_ +" ", _sam_)
                     chain.Add( f + '/' + _tre_ )
                     logger.debug("[b][%s] = [%s/%s]" % ( sample.name, f , _tre_ ) )
                 if 'background' in sample.label.lower()  :
@@ -502,6 +499,7 @@ class instack ():
         if select  != '':
             cutflow = cutflow + '&&' + select
         return cutflow
+    
     #---------------------------------------------------------
     def variable_cutflow_2D(self, variable_x, variable_y, select=''):
         cutflow = ''
@@ -639,40 +637,19 @@ class instack ():
                     up_err_sum2 = (stat/y)*(stat/y)
                     dw_err_sum2 = (stat/y)*(stat/y)
                     for key,syst in systematics.items():
-                       up_diff   = (syst.up_histo.GetBinContent  (ibin)- y)/y
-                       dw_diff   = (syst.down_histo.GetBinContent(ibin)- y)/y
-                        #FIXME ed changing systematics treatment
-                        #if( up_diff > 0 ):
-                        #    up_err_sum2  += up_diff*up_diff
-                       if( up_diff > 0 ):
-                          up_err_sum2  += up_diff*up_diff##AL test
-                       else:
-                          dw_err_sum2  += up_diff*up_diff
-                    #if( dw_diff < 0 ):
-                    #    dw_err_sum2  += dw_diff*dw_diff
-                       if( dw_diff < 0 ):
-                          dw_err_sum2  += dw_diff*dw_diff
-                       else:
-                           up_err_sum2  += dw_diff*dw_diff
+                        up_diff   = (syst.up_histo.GetBinContent  (ibin)- y)/y
+                        dw_diff   = (syst.down_histo.GetBinContent(ibin)- y)/y
+                        if( up_diff > 0 ):
+                            up_err_sum2  += up_diff*up_diff
+                        if( dw_diff < 0 ):
+                            dw_err_sum2  += dw_diff*dw_diff
                 up_error = math.sqrt(up_err_sum2)
                 dw_error = math.sqrt(dw_err_sum2)
                 band_max   = 1 + up_error
                 band_min   = 1 - dw_error
-               # print('AL DEBUG: for bin number %f \n'%ibin)
 
-                #print('AL DEBUG: max band error is %f \n'%band_max)
-                #print('AL DEBUG: min band error is %f \n'%band_min)
-                if (abs(band_max/band_min) < 10):
-                   systPrecision.SetBinContent(ibin, (band_max + band_min)/2.0);
-                   systPrecision.SetBinError  (ibin, (band_max - band_min)/2.0);
-                else:
-                   print('AL hack: make sure ratio plot syst errors are coherent with distribution errors !\n');
-                   if ( (band_max - band_min)/2.0 > ( self.options.ratio_range[1] - self.options.ratio_range[0])/2.0):
-                      systPrecision.SetBinContent(ibin, 1.0);
-                      systPrecision.SetBinError(ibin,( self.options.ratio_range[1] - self.options.ratio_range[0])/2.0);
-                   else:
-                      systPrecision.SetBinContent(ibin, (band_max + band_min)/2.0);
-                      systPrecision.SetBinError  (ibin, (band_max - band_min)/2.0);
+                systPrecision.SetBinContent(ibin, (band_max + band_min)/2.0);
+                systPrecision.SetBinError  (ibin, (band_max - band_min)/2.0);
         statPrecision.GetYaxis().SetRangeUser(self.options.ratio_range[0], self.options.ratio_range[1])
         systPrecision.GetYaxis().SetRangeUser(self.options.ratio_range[0], self.options.ratio_range[1])
         return (statPrecision, systPrecision)
@@ -700,42 +677,26 @@ class instack ():
         if systematic_only:
             for ibin in range(myHisto.GetNbinsX()+1):
                 y    = statPrecision.GetBinContent(ibin);
-               # print('AL DEBUG: y value is %f \n'%y)
                 stat = statPrecision.GetBinError  (ibin);
-                #print('AL DEBUG: stat value is %f \n'%stat)
+
                 up_err_sum2 = stat**2
                 dw_err_sum2 = stat**2
                 for key, syst in systematics.items():
-                    up_diff   = (syst.up_histo.GetBinContent(ibin))   - y
-                  #  print('AL DEBUG: syst up is %f \n'%syst.up_histo.GetBinContent(ibin))
-                    dw_diff   = (syst.down_histo.GetBinContent(ibin)) - y
-                   # print('AL DEBUG: syst down is %f \n'%syst.down_histo.GetBinContent(ibin))
-                    #FIXME ed changing error handling (once again......)
-                    #if up_diff > 0 :
-                    #    up_err_sum2 += up_diff*up_diff
-                    if( up_diff > 0 ):
-                        up_err_sum2  += up_diff*up_diff##AL test
-                    else:
-                       dw_err_sum2  += up_diff*up_diff
-                    #if( dw_diff < 0 ):
-                    #    dw_err_sum2  += dw_diff*dw_diff
-                    if( dw_diff < 0 ):
-                        dw_err_sum2  += dw_diff*dw_diff
-                    else:
-                        up_err_sum2  += dw_diff*dw_diff
+                    up_diff   = syst.up_histo.GetBinContent(ibin)   - y
+                    dw_diff   = syst.down_histo.GetBinContent(ibin) - y
+                    if up_diff > 0 :
+                        up_err_sum2 += up_diff*up_diff
+                    if dw_diff < 0 :
+                        dw_err_sum2 += dw_diff*dw_diff
                 up_error = math.sqrt(up_err_sum2)
                 dw_error = math.sqrt(dw_err_sum2)
 
                 band_max   = y + up_error
                 band_min   = y - dw_error
-               # print('AL DEBUG: for bin number %f \n'%ibin)
-
-               # print('AL DEBUG: max band error is %f \n'%band_max)
-               # print('AL DEBUG: min band error is %f \n'%band_min)
 
                 systPrecision.SetBinContent(ibin, (band_max + band_min)/2.0);
                 systPrecision.SetBinError  (ibin, (band_max - band_min)/2.0);
-    
+
                 statPrecision.SetBinContent(ibin,   y    )
                 statPrecision.SetBinError  (ibin,   stat )
                 # ------
@@ -749,10 +710,10 @@ class instack ():
         canv  = ROOT.TCanvas("c_" + name, name,settings.canvas_width,settings.canvas_height)
         canv.cd()
         #padup = ROOT.TPad("padup", "padup", 0, 0.4, 1, 1.0)
-        padup = ROOT.TPad("padup", "padup", 0, 0.28, 1, 1.0)
+        padup = ROOT.TPad("padup", "padup", 0, 0.3, 1, 1.0)
         padup.SetNumber(1)
         #paddw = ROOT.TPad("paddw", "paddw", 0, 0.0, 1, 0.4)
-        paddw = ROOT.TPad("paddw", "paddw", 0, 0.0, 1, 0.28)
+        paddw = ROOT.TPad("paddw", "paddw", 0, 0.0, 1, 0.3)
         paddw.SetNumber(2)
         padup.Draw()
         padup.SetTopMargin(0.08)
@@ -787,14 +748,10 @@ class instack ():
             for ibin in range(hist2.GetNbinsX()+1):
                 ymc  = hist2.GetBinContent(ibin);
                 stat = hist1.GetBinError  (ibin);
-                #print('AL DEBUG: for bin number %f \n'%ibin)
-                #print('AL DEBUG: bin content is %f \n'%ymc)
-                #print('AL DEBUG:  error is %f \n'%stat)
-                #print('AL DEBUG: min band error is %f \n'%band_min)
                 if (ymc>0):
-                   retH.SetBinError  (ibin,stat/ymc);
+                    retH.SetBinError  (ibin,stat/ymc);
                 else:
-                   retH.SetBinError  (ibin,0);
+                    retH.SetBinError  (ibin,0);
         ROOT.SetOwnership(retH,0)
         return retH
     #---------------------------------------------------------
@@ -822,7 +779,7 @@ class instack ():
         if log: yMin = min(histData.GetMinimum(),histMC.GetMinimum())
         else  : yMin = 0
         if log: yMax = 100*yMax
-        else  : yMax = 1.1*yMax
+        else  : yMax = 1.2*yMax
 
         try:
             histData.GetYaxis().SetRangeUser(0,1.2*yMax)
@@ -845,7 +802,7 @@ class instack ():
         ROOT.SetOwnership(systHist ,0)
         errorHist.GetXaxis().SetTitle(xTitle)
         errorHist.GetYaxis().SetTitle(yTitle)
-        print('AL is even used ?')
+        #
         errorHist.Draw('E2')
         sysrHist.Draw('E2,same')
         ratioHist = self.makeRatio(histData,histMC,ymax= ratioMax,ymin=ratioMin,norm=norm)
@@ -887,7 +844,7 @@ class instack ():
             logger.info('nominal::'+ sam +' tree: '+ samples[sam].get('_root_tree_',ROOT.TChain()).GetName()
                         + ' nEvent:' + str(samples[sam].get('_root_tree_',ROOT.TChain()).GetEntries()))
     #---------------------------------------------------------
-    def draw(self, varkey, label='UntaggedTag', select=''):
+    def draw(self, varkey, label='VBF', select=''):
         variable = None
         try:
             variable = self.variables[varkey]
@@ -895,7 +852,7 @@ class instack ():
             logger.error(colored(" Variable not registred on the plotcard. Please check !","red"))
             return
         histname = ('stack_histogram_' +
-                    variable.name + '_' + label + ''
+                    variable.name + '_' + label + '_'
                     '')
         print('check')
         print(variable.name)
@@ -920,6 +877,7 @@ class instack ():
                                         (0.96 - ROOT.gStyle.GetPadTopMargin()))
 
         variable.root_cutflow = self.variable_cutflow(variable.name,'')
+        print("debug: root_cutflow= ", variable.root_cutflow)
         hstack = ROOT.THStack('hs_' + variable.name,'')
         hstack.SetName('hs_'+ variable.name)
         hstack.SetTitle(";" + variable.title+";entries")
@@ -934,31 +892,23 @@ class instack ():
                 _cutflow_.append('('+ variable.root_cutflow +')')
             variable.root_cutflow = '*'.join(_cutflow_)
         else:
-            variable.root_cutflow = self.options.weight_branch
+            variable.root_cutflow = self.options.weight_branch 
 
         bar = ProgressBar(widgets=[colored(' -- variable :: %20s   ' % ((variable.name[:18] + '..') if len(variable.name)>20 else variable.name), 'green'),
                           Percentage(),'  ' ,Bar('>'), ' ', ETA()], term_width=100)
         for proc,sample in bar(self.samples.items()):
             _cutflow_ = variable.root_cutflow
-            print('ED DEBUG initial cutflow is \n%s'%_cutflow_)
+            print("debug: sample.cut", sample.cut)
             if len(sample.cut) != 0:
-                #_cutflow_ = '&&'.join([variable.root_cutflow[:-1],sample.cut+')'])
-                _cutflow_ = '*('.join([variable.root_cutflow,sample.cut+')']) #FIXME ED DEBUG
-            print('ED DEBUG now cutflow is \n%s'%_cutflow_)
+                print("debug: variable.root_cutflow = ", variable.root_cutflow)
+                print("debug: variable.root_cutflow[:-1] = ", variable.root_cutflow[:-1])
+                print("debug: sample.cut = ", sample.cut) 
+                _cutflow_ = '&&'.join([variable.root_cutflow[:-1],sample.cut+')'])
             if len(variable.blind) != 0 and sample.label == 'data':
                 _cutflow_ = '&&'.join([variable.root_cutflow[:-1],variable.blind+')'])
-            print('ED DEBUG now cutflow is \n%s'%_cutflow_)
             if sample.label != 'data':
-                print('ED DEBUG starting projection for proc %s sample %s'%(proc,sample))
-                print('ED DEBUG variable formula is %s'%variable.formula)
-                tempStr = '*'.join(
-                                  [   _cutflow_,
-                                      "%f" % self.options.kfactor,
-                                      "%f" % self.options.intlumi,
-                                      "%f" % sample.kfactor
-                                  ]
-                              )
-                print('ED DEBUG full cutflow is \n%s'%tempStr)
+                print("check is ->> not data root_tree project")
+                print(" ")
                 sample.root_tree.Project(
                     'h_' + variable.name + variable.hist,
                     variable.formula,
@@ -971,32 +921,36 @@ class instack ():
                     )
                 
                 )
-                print('ED DEBUG done projection for proc %s sample %s'%(proc,sample))
             
             elif sample.label == 'data':
+                print("check is ->> data root_tree project")
+                print(" ")
+                print("check ->> variable.name", variable.name)
+                print("check ->> variable.hist", variable.hist)
+                print "check ->> variable.formula", variable.formula
+                print "check ->> _cutflow_", _cutflow_
                 sample.root_tree.Project(
                     'h_' + variable.name + variable.hist,
                     variable.formula,
-                    _cutflow_.replace('weight','1.') #ED FIXME FIXME
-                    #_cutflow_
+                    _cutflow_
                 )
 
             else:
                 logger.error(' -- the label of the sample "%s" is not recognised by Heepi' % sample.name )
                 return
-
+            print("checkcheck1")
             ROOT.gDirectory.ls()
-            print('checkcheck')
-            print(sample.root_tree)
+            print('checkcheck2')
+            print("sample.root_tree", sample.root_tree)
             print(variable.name)
-            print('checkcheck')
+            print('checkcheck3')
             print('start check 2')
             print('h_' + variable.name)
             print('end check 2')
             hist = ROOT.gDirectory.Get('h_' + variable.name )
+            print(hist)
             #hist = sample.root_tree
             print('start check 3')
-	    print(hist)
             print('end check 3')
             print('start check 4')
             print(ROOT.gDirectory.ls())
@@ -1005,6 +959,7 @@ class instack ():
 #            sample.root_tree.Print()
             
             print('end check 5')
+            print("hist.Integral(): \t",hist.Integral())
             #me
             #histogram = hist.ReadObj()
             #me
@@ -1013,12 +968,11 @@ class instack ():
                 hist.SetDirectory(0)
             except Exception:
                 raise Exception,"missing histogram for variable.name %s" % variable.name
-            
             if variable.norm and hist.Integral()!=0:
+                print("variable.norm", variable.norm)
                 hist.Sumw2()
                 hist.Scale(1.0/hist.Integral())
             if hist.Integral() == 0 : logger.warning(' The Integral of the histogram is null, please check this variable: %s' % varkey)
-            else: print 'integral of this hist is %1.3f'%hist.Integral()
             if 'background' in sample.label.lower():
                 for key,syst in sample.systematics.items() :
                     for _sys_flip_ in ['up','down']:
@@ -1098,7 +1052,7 @@ class instack ():
                                                variable.unit) ))
         _htmp_.Reset()
         _ymax_ = max([x.GetMaximum() for x in variable.root_histos])
-        _ymin_ = min([x.GetMinimum() for x in variable.root_histos])- 100 #AL
+        _ymin_ = min([x.GetMinimum() for x in variable.root_histos])
 
         if variable.log:
             if variable.norm :
@@ -1118,14 +1072,8 @@ class instack ():
         self.customizeHisto(_htmp_, self.options.ratioplot)
         _htmp_.Draw('hist')
         hstack.Draw('hist,same')
-        print 'ED DEBUG hstack'
-        print hstack
-        print 'ED DEBUG hstack.GetStack()'
-        print hstack.GetStack()
-        print 'ED DEBUG hstack.GetStack().Last()'
-        print hstack.GetStack().Last()
-        print 'ED DEBUG systematics'
-        print self.systematics
+        print("debug: self.systematics: ", self.systematics)
+        print("debug: hstack.GetStack().Last(): ", hstack.GetStack())
         (herrstat, herrsyst) = self.draw_error_band(hstack.GetStack().Last(),self.systematics)
         herrstat.Draw('E2,same')
         if len(self.systematics)!=0:herrsyst.Draw('E2,same')
@@ -1161,9 +1109,7 @@ class instack ():
         # if (self.systematics.keys())>0 : self.options.label.append('+'.join(self.systematics.keys()))
         utils.draw_labels(self.options.label)
         # if (self.systematics.keys())>0 : self.options.label.pop()
-        #utils.draw_cms_headlabel( label_left = '', label_right='#sqrt{s} = 13 TeV, L = %1.2f fb^{-1}' % self.options.intlumi )
-        #utils.draw_cms_headlabel( label_right='#sqrt{s} = 13 TeV, L = 54.4 fb^{-1}' ) #AL hard coded lumi
-        utils.draw_cms_headlabel( label_right='#sqrt{s} = 13 TeV, L = 36.3 fb^{-1}' ) #AL hard coded lumi
+        utils.draw_cms_headlabel( label_left = '', label_right='#sqrt{s} = 13 TeV, L = %1.2f fb^{-1}' % self.options.intlumi )
         #
         c.cd()
         if self.options.ratioplot :
@@ -1321,6 +1267,19 @@ class instack ():
         _cutflow_ = self.variable_cutflow(variable.name,'')
         if selection != "" :
             _cutflow_ = _cutflow_ + "&&" + selection
+        print("debug:  '*'.join(
+                [   "(" + _cutflow_ + ")",
+                    "%f" % self.options.kfactor,
+                    "%f" % self.options.intlumi,
+                    self.options.weight_branch
+                ]
+            )", '*'.join(
+                [   "(" + _cutflow_ + ")",
+                    "%f" % self.options.kfactor,
+                    "%f" % self.options.intlumi,
+                    self.options.weight_branch
+                ]
+            ))
         self.samples[sig_sample].root_tree.Project(
             'hsig_' + variable.name + ','.join( ['(1000', ','.join(variable.hist.split(',')[1:])]),
             variable.formula,
@@ -1546,7 +1505,7 @@ class instack ():
 
 
         utils.draw_labels( self.options.label)
-        utils.scatter_cms_headlabel( label_right='#sqrt{s} = 13 TeV, L = 41.5 fb^{-1}' ) #AL hard code lumi
+        utils.scatter_cms_headlabel( label_right='#sqrt{s} = 13 TeV, L = %1.2f fb^{-1}' % self.options.intlumi )
 
         utils.draw_cut_line(scatter_sig,variable_x, axis='x')
         utils.draw_cut_line(scatter_sig,variable_y, axis='y')

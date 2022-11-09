@@ -1,0 +1,343 @@
+{
+  "variables": {
+    "weight": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "weight", 
+      "hist": "(100,0.0,2.2)", 
+      "norm": false
+    }, 
+    "leadphi": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "leadphi", 
+      "hist": "(100,-3.7,3.7)", 
+      "norm": false
+    }, 
+    "leadeta": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "leadeta", 
+      "hist": "(100,-3.0,3.0)", 
+      "norm": false
+    }, 
+    "centralObjectWeight": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "centralObjectWeight", 
+      "hist": "(100,0.0,2.2)", 
+      "norm": false
+    }, 
+    "event": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "event", 
+      "hist": "(101,0.0,7373000000.0)", 
+      "norm": false
+    }, 
+    "subleadptom": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "subleadptom", 
+      "hist": "(100,0.0,6.3)", 
+      "norm": false
+    }, 
+    "vtxprob": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "vtxprob", 
+      "hist": "(100,0.1,1.1)", 
+      "norm": false
+    }, 
+    "leadR9": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "leadR9", 
+      "hist": "(100,0.4,6.6)", 
+      "norm": false
+    }, 
+    "pt": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "pt", 
+      "hist": "(100,0.0,1760.0)", 
+      "norm": false
+    }, 
+    "PTWeight": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "PTWeight", 
+      "hist": "(100,0.0,2.2)", 
+      "norm": false
+    }, 
+    "subleadSigEOverE": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "subleadSigEOverE", 
+      "hist": "(100,0.0,0.5)", 
+      "norm": false
+    }, 
+    "puweight": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "puweight", 
+      "hist": "(100,0.0,2.2)", 
+      "norm": false
+    }, 
+    "candidate_id": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "candidate_id", 
+      "hist": "(4,-2.0,2.0)", 
+      "norm": false
+    }, 
+    "sigmarv": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "sigmarv", 
+      "hist": "(100,0.0,0.5)", 
+      "norm": false
+    }, 
+    "subleadphi": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "subleadphi", 
+      "hist": "(100,-3.7,3.7)", 
+      "norm": false
+    }, 
+    "nvtx": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "nvtx", 
+      "hist": "(101,0.0,202.0)", 
+      "norm": false
+    }, 
+    "sublead_genMatchType": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "sublead_genMatchType", 
+      "hist": "(100,-1.2,1.2)", 
+      "norm": false
+    }, 
+    "leadptom": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "leadptom", 
+      "hist": "(100,0.0,20.4)", 
+      "norm": false
+    }, 
+    "run": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "run", 
+      "hist": "(104,296926.0,306910.0)", 
+      "norm": false
+    }, 
+    "lead_genMatchType": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "lead_genMatchType", 
+      "hist": "(100,-1.2,1.2)", 
+      "norm": false
+    }, 
+    "rho": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "rho", 
+      "hist": "(100,0.0,124.0)", 
+      "norm": false
+    }, 
+    "lumi": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "lumi", 
+      "hist": "(102,0.0,5508.0)", 
+      "norm": false
+    }, 
+    "npu": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "npu", 
+      "hist": "(100,-1.2,1.2)", 
+      "norm": false
+    }, 
+    "sigmarvDecorr": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "sigmarvDecorr", 
+      "hist": "(100,0.0,0.2)", 
+      "norm": false
+    }, 
+    "CosPhi": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "CosPhi", 
+      "hist": "(100,-1.2,1.2)", 
+      "norm": false
+    }, 
+    "leadmva": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "leadmva", 
+      "hist": "(100,-1.1,1.2)", 
+      "norm": false
+    }, 
+    "DiphotonMVA_self": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "DiphotonMVA_self", 
+      "hist": "(20,0,1)", 
+      "norm": false
+    }, 
+    "sigmawv": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "sigmawv", 
+      "hist": "(100,0.0,0.5)", 
+      "norm": false
+    }, 
+    "subleadmva": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "subleadmva", 
+      "hist": "(100,-1.1,1.2)", 
+      "norm": false
+    }, 
+    "diphoMVA": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "diphoMVA", 
+      "hist": "(44,-1.1,1.1)", 
+      "norm": false
+    }, 
+    "leadSigEOverE": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "leadSigEOverE", 
+      "hist": "(100,0.0,0.5)", 
+      "norm": false
+    }, 
+    "processIndex": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "processIndex", 
+      "hist": "(4,-2.0,2.0)", 
+      "norm": false
+    }, 
+    "dZ": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "dZ", 
+      "hist": "(100,-100.2,-97.8)", 
+      "norm": false
+    }, 
+    "subleadR9": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "subleadR9", 
+      "hist": "(100,0.0,16.2)", 
+      "norm": false
+    }, 
+    "subleadeta": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "subleadeta", 
+      "hist": "(100,-3.0,3.0)", 
+      "norm": false
+    }, 
+    "CMS_hgg_mass": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "CMS_hgg_mass", 
+      "hist": "(100,55.0,125.0)", 
+      "norm": false
+    }
+  }, 
+  "processes": {
+    "Data": {
+      "files": "NewDiphotonBDT_DataUL2017_ZeeTree_PTReweight", 
+      "cut": "((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0) &&((leadptom*CMS_hgg_mass) >=40))", 
+      "title": "Data", 
+      "color": 138, 
+      "tree": "Data", 
+      "label": "Data", 
+      "order": 0
+    },
+    "Z -> ee": {
+      "files": "NewDiPhotonBDT_DYMC2017_ZeeTree_Syst_PTReweight_DYToLL_13TeV_UntaggedTag_withAllSyst", 
+      "cut": "PTWeight*((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0) &&( (leadptom*CMS_hgg_mass) >=40))", 
+      "title": "DYToLL", 
+      "color": 122, 
+      "tree": "DYToLL", 
+      "label": "background"
+        }
+  }, 
+  "systematics": {
+    "SOE": {
+        "up_tree" : "DYToLL_13TeV_UntaggedTag_SigmaEOverEShiftUp01sigma",
+        "down_tree" : "DYToLL_13TeV_UntaggedTag_SigmaEOverEShiftDown01sigma"
+     },
+     "MVA":{
+      "up_tree"   : "DYToLL_13TeV_UntaggedTag_MvaShiftUp01sigma",
+      "down_tree" : "DYToLL_13TeV_UntaggedTag_MvaShiftDown01sigma"
+     }
+  },
+  "options": {
+    "label": [
+      "Zee"
+    ],
+    "treename": "{sampleid}_13TeV_UntaggedTag", 
+    "weight_branch": "weight", 
+    "cutflow": [
+      ""
+    ], 
+    "ratio_range": [
+      0.5, 
+      1.5
+    ], 
+    "kfactor": 39.9850328168073,
+    "output_label": "", 
+    "intlumi": 1.0, 
+    "ratioplot": true, 
+    "categories": [], 
+    "legend": [
+      ""
+    ]
+  }
+}

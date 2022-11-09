@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import io
+
 try:
     import ROOT
 except ImportError:
@@ -369,12 +369,12 @@ class instack ():
         self.sampledir = directory
     def read_plotcard(self):
         _config_ = None
-        with io.open(self.plotcard) as f:
+        with open(self.plotcard) as f:
             _config_ = json.loads(jsmin(f.read()))
         if self.cutcard != '':
             logger.info(' ---- cut card is specified ----')
             logger.info(' -- %20s ' % ( self.cutcard )    )
-            with io.open(self.cutcard) as f:
+            with open(self.cutcard) as f:
                 _cuts_   = json.loads(jsmin(f.read()))
                 _config_ = merge(config, cuts)
         for key in _config_:
@@ -414,7 +414,6 @@ class instack ():
         _samples_ = []
         for proc,sample in self.samples.items():
             print "SCZ",sample,sample.files
-            print("sample.tree=", sample.tree)
             chainName = ""
             if sample.tree == "":
                 chainName = str(self.options.treename).format(sampleid = sample.name)
