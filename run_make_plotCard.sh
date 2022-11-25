@@ -1,3 +1,2 @@
-./heppi-make-plotcard --load  /eos/user/z/zhenxuan/Hgg_mass/Zee/NewDiphotonBDT_DataUL2017_ZeeTree_PTReweight.root \
-                    --out   plotcard2017_zee.json \
-                    --tree  tagsDumper/trees/Data_13TeV_UntaggedTag/
+# ./heppi-make-plotcard --load  /eos/user/z/zhenxuan/Hgg_mass/MiniTree/UL2016/preVFP/SingleEleData_preVFP_Zee_BDT_ptWgt.root --out   plotcardUL16PreVFP_zee.json --tree  Data_13TeV_UntaggedTag
+./heppi-make-plotcard --load  /eos/user/z/zhenxuan/Hgg_mass/MiniTree/UL2018/MassUL2018_ETSS/DYMC_Summer19UL2018_ZeeTree_Syst_BDT.root --out   plotcardUL16PreVFP_zee.json --tree  Data_13TeV_UntaggedTag

@@ -419,6 +419,8 @@ class instack ():
             if sample.tree == "":
                 chainName = str(self.options.treename).format(sampleid = sample.name)
             else:
+                print "chainName=",sample.tree
+                print "chainName=",self.options
                 chainName = str(self.options.treename).format(sampleid = sample.tree)
             chain = ROOT.TChain(chainName)
             _chain_up_list_ = []
@@ -437,6 +439,7 @@ class instack ():
                         chain.Add( f + '/' + _tre_ )
                         logger.debug("[a][%s] = [%s/%s]" % ( sample.name, f , _tre_ ) )
                 # preliminary systematics handling
+                print "sample.label.lower", sample.label.lower
                 if 'background' in sample.label.lower()  :
                     for systkey, syst in self.systematics.items() :
                         _ch_ = {}
@@ -469,6 +472,7 @@ class instack ():
                     for systkey, syst in self.systematics.items() :
                         _ch_ = {}
                         for level in ['up','down']:
+                            print "sample.tree", sample.tree
                             _syst_chain_ = ROOT.TChain(syst.__dict__[level+'_tree'].format(sampleid = sample.tree))
                             for f in glob.glob( self.sampledir + '/*'+ _sam_ +'*.root'):
                                 _syst_chain_.Add(f)
