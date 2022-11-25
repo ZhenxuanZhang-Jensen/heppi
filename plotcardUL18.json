@@ -155,7 +155,7 @@
     "sigmarv": {
       "blind": "", 
       "cut": "", 
-      "log": true, 
+      "log": false, 
       "title": "sigmarv", 
       "hist": "(100,0.0,0.3)", 
       "norm": false
@@ -275,7 +275,7 @@
     "sigmawv": {
       "blind": "", 
       "cut": "", 
-      "log": true, 
+      "log": false, 
       "title": "sigmawv", 
       "hist": "(100,0.0,0.3)", 
       "norm": false
@@ -359,7 +359,7 @@
       "cut": "((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0))", 
       "title": "Data", 
       "color": 138, 
-      "tree": "Data_13TeV_UntaggedTag", 
+      "tree": "Data", 
       "label": "Data", 
       "order": 0
     },
@@ -368,16 +368,16 @@
       "cut": "PTWeight*((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0) )", 
       "title": "DYToLL", 
       "color": 122, 
-      "tree": "DYToLL_13TeV_UntaggedTag", 
+      "tree": "DYToLL", 
       "label": "background"
         },
     "b2": {
       "files": "DYMC_Summer19UL2018_ZeeTree_Syst_BDT_ptWgt_all", 
       "cut": "PTWeight*((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0) )", 
-      "title": "dd", 
-      "color": 123, 
-      "tree": "DYToLL_13TeV_UntaggedTag", 
-      "label": "d"
+      "title": "DYToLL", 
+      "color": 125, 
+      "tree": "DYToLL", 
+      "label": "background"
         }
   }, 
 
@@ -385,7 +385,7 @@
     "label": [
       "Zee"
     ],
-    "treename": "{sampleid}", 
+    "treename": "{sampleid}_13TeV_UntaggedTag", 
     "weight_branch": "weight", 
     "cutflow": [
       ""
