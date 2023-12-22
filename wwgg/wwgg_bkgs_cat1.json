@@ -1,0 +1,1687 @@
+{
+  "variables": {
+    "electron_mvaFall17V2Iso_WP80": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "electron_mvaFall17V2Iso_WP80", 
+      "hist": "(4,-1001.0,-997.0)", 
+      "norm": false
+    }, 
+    "Diphoton_eta": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "Diphoton_eta", 
+      "hist": "(30,-1.0,1.6)", 
+      "norm": false
+    }, 
+    "PuppiMET_phiJERUp": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "PuppiMET_phiJERUp", 
+      "hist": "(30,-2.2,0.9)", 
+      "norm": false
+    }, 
+    "jet_3_pt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_3_pt", 
+      "hist": "(30,-1100.0,160.0)", 
+      "norm": false
+    }, 
+    "MET_fiducialGenPt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "MET_fiducialGenPt", 
+      "hist": "(30,7.3,9.6)", 
+      "norm": false
+    }, 
+    "SubleadPhoton_pt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "SubleadPhoton_pt", 
+      "hist": "(30,36.0,115.0)", 
+      "norm": false
+    }, 
+    "jet_6_btagCMVA": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_6_btagCMVA", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_4_btagDeepFlavB": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_4_btagDeepFlavB", 
+      "hist": "(30,-1080.0,80.0)", 
+      "norm": false
+    }, 
+    "jet_3_rawFactor": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_3_rawFactor", 
+      "hist": "(30,-1080.0,80.0)", 
+      "norm": false
+    }, 
+    "jet_4_phi": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_4_phi", 
+      "hist": "(30,-1080.0,0.0)", 
+      "norm": false
+    }, 
+    "jet_5_btagCSVV2": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_5_btagCSVV2", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_2_qgl": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_2_qgl", 
+      "hist": "(30,0.4,0.5)", 
+      "norm": false
+    }, 
+    "SubleadPhoton_mvaID": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "SubleadPhoton_mvaID", 
+      "hist": "(30,0.4,0.9)", 
+      "norm": false
+    }, 
+    "Diphoton_minID": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "Diphoton_minID", 
+      "hist": "(8,-0.9,1)", 
+      "norm": false
+    }, 
+    "Diphoton_maxID": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "Diphoton_maxID", 
+      "hist": "(8,-0.9,1)", 
+      "norm": false
+    }, 
+    "maxphotonID": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "maxphotonID", 
+      "hist": "(30,-1,0.9)", 
+      "norm": false
+    }, 
+    "fatjet_H_Hqqqq_qqlv_vsQCDTop": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "HWW PN tagger", 
+      "hist": "(8,0.2,1)", 
+      "norm": false
+    }, 
+    "jet_6_btagCSVV2": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_6_btagCSVV2", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "LeadPhoton_mass": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "LeadPhoton_mass", 
+      "hist": "(30,-0.0,0.0)", 
+      "norm": false
+    }, 
+    "muon_tightId": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "muon_tightId", 
+      "hist": "(4,-1001.0,-997.0)", 
+      "norm": false
+    }, 
+    "jet_3_puIdDisc": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_3_puIdDisc", 
+      "hist": "(30,-1080.0,100.0)", 
+      "norm": false
+    }, 
+    "jet_6_genJetIdx": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_6_genJetIdx", 
+      "hist": "(4,-1001.0,-997.0)", 
+      "norm": false
+    }, 
+    "jet_2_eta": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_2_eta", 
+      "hist": "(30,-2.2,-0.5)", 
+      "norm": false
+    }, 
+    "MET_pt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "MET_pt", 
+      "hist": "(30,38.5,68.0)", 
+      "norm": false
+    }, 
+    "jet_4_btagDeepB": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_4_btagDeepB", 
+      "hist": "(30,-1080.0,80.0)", 
+      "norm": false
+    }, 
+    "jet_4_qgl": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_4_qgl", 
+      "hist": "(30,-1080.0,80.0)", 
+      "norm": false
+    }, 
+    "SubleadPhoton_phi": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "SubleadPhoton_phi", 
+      "hist": "(30,-1.3,0.5)", 
+      "norm": false
+    }, 
+    "PuppiMET_phi": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "PuppiMET_phi", 
+      "hist": "(30,-2.4,1.1)", 
+      "norm": false
+    }, 
+    "fatjet_H_eta": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "fatjet_H_eta", 
+      "hist": "(30,-3,3)", 
+      "norm": false
+    }, 
+    "jet_7_btagDeepB": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_7_btagDeepB", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "LeadPhoton_pixelSeed": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "LeadPhoton_pixelSeed", 
+      "hist": "(4,-2.0,2.0)", 
+      "norm": false
+    }, 
+    "muon_mass": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "muon_mass", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_7_btagCMVA": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_7_btagCMVA", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "GenHggHiggs_eta": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "GenHggHiggs_eta", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_7_puIdDisc": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_7_puIdDisc", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_5_pt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_5_pt", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_1_qgl": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_1_qgl", 
+      "hist": "(30,1.0,1.0)", 
+      "norm": false
+    }, 
+    "jet_6_btagDeepFlavB": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_6_btagDeepFlavB", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "GenHggSubleadPhoton_eta": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "GenHggSubleadPhoton_eta", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_7_jetId": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_7_jetId", 
+      "hist": "(4,-1001.0,-997.0)", 
+      "norm": false
+    }, 
+    "electron_pt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "electron_pt", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "GenHggSubleadPhoton_pt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "GenHggSubleadPhoton_pt", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "ChsMET_sumEt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "ChsMET_sumEt", 
+      "hist": "(30,2110.0,2490.0)", 
+      "norm": false
+    }, 
+    "jet_3_mass": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_3_mass", 
+      "hist": "(30,-1100.0,100.0)", 
+      "norm": false
+    }, 
+    "jet_7_phi": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_7_phi", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_3_qgl": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_3_qgl", 
+      "hist": "(30,-1080.0,100.0)", 
+      "norm": false
+    }, 
+    "muon_dz": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "muon_dz", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "MET_covXX": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "MET_covXX", 
+      "hist": "(30,800.0,2240.0)", 
+      "norm": false
+    }, 
+    "MET_covXY": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "MET_covXY", 
+      "hist": "(30,-470.0,420.0)", 
+      "norm": false
+    }, 
+    "LeadPhoton_mvaID": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "LeadPhoton_mvaID", 
+      "hist": "(30,0.9,0.9)", 
+      "norm": false
+    }, 
+    "jet_6_puId": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_6_puId", 
+      "hist": "(4,-1001.0,-997.0)", 
+      "norm": false
+    }, 
+    "SubleadPhoton_pixelSeed": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "SubleadPhoton_pixelSeed", 
+      "hist": "(4,-2.0,2.0)", 
+      "norm": false
+    }, 
+    "jet_1_puId": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_1_puId", 
+      "hist": "(4,5.0,9.0)", 
+      "norm": false
+    }, 
+    "jet_1_phi": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_1_phi", 
+      "hist": "(30,1.7,3.0)", 
+      "norm": false
+    }, 
+    "Diphoton_mass": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "Diphoton_mass", 
+      "hist": "(16,100.0,180.0)", 
+      "norm": false
+    }, 
+    "GenHggSubleadPhoton_mass": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "GenHggSubleadPhoton_mass", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_6_jetId": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_6_jetId", 
+      "hist": "(4,-1001.0,-997.0)", 
+      "norm": false
+    }, 
+    "jet_3_btagCSVV2": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_3_btagCSVV2", 
+      "hist": "(30,-1080.0,80.0)", 
+      "norm": false
+    }, 
+    "muon_phi": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "muon_phi", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "event": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "event", 
+      "hist": "(102,1221800000.0,2058200000.0)", 
+      "norm": false
+    }, 
+    "jet_1_mass": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_1_mass", 
+      "hist": "(30,28.0,29.3)", 
+      "norm": false
+    }, 
+    "fatjet_1_eta": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "fatjet_1_eta", 
+      "hist": "(30,-1.1,1.4)", 
+      "norm": false
+    }, 
+    "category": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "category", 
+      "hist": "(3,0.0,3.0)", 
+      "norm": false
+    }, 
+    "Diphoton_phi": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "Diphoton_phi", 
+      "hist": "(30,0.0,0.2)", 
+      "norm": false
+    }, 
+    "jet_6_mass": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_6_mass", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_6_phi": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_6_phi", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "fatjet_H_pt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "fatjet_H_pt", 
+      "hist": "(30,200,800.0)", 
+      "norm": false
+    }, 
+    "MET_significance": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "MET_significance", 
+      "hist": "(30,0.7,2.6)", 
+      "norm": false
+    }, 
+    "jet_1_pt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_1_pt", 
+      "hist": "(20,304.0,380.0)", 
+      "norm": false
+    }, 
+    "SubleadPhoton_eta": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "SubleadPhoton_eta", 
+      "hist": "(30,-1.5,0.5)", 
+      "norm": false
+    }, 
+    "fatjet_1_msoftdrop": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "fatjet_1_msoftdrop", 
+      "hist": "(30,3.2,8.5)", 
+      "norm": false
+    }, 
+    "jet_6_eta": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_6_eta", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "GenHggSubleadPhoton_phi": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "GenHggSubleadPhoton_phi", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_5_phi": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_5_phi", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "PuppiMET_sumEt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "PuppiMET_sumEt", 
+      "hist": "(30,840.0,1275.0)", 
+      "norm": false
+    }, 
+    "fatjet_H_inclParTMDV1_HWWlvqqvsQCDTop": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "fatjet_H_inclParTMDV1_HWWlvqqvsQCDTop", 
+      "hist": "(20,0.2,1)", 
+      "norm": false
+    }, 
+    "LeadPhoton_pt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "LeadPhoton_pt", 
+      "hist": "(30,64.0,116.0)", 
+      "norm": false
+    }, 
+    "jet_4_mass": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_4_mass", 
+      "hist": "(30,-1100.0,100.0)", 
+      "norm": false
+    }, 
+    "MET_covYY": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "MET_covYY", 
+      "hist": "(30,1130.0,1710.0)", 
+      "norm": false
+    }, 
+    "electron_mvaFall17V2noIso_WP90": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "electron_mvaFall17V2noIso_WP90", 
+      "hist": "(4,-1001.0,-997.0)", 
+      "norm": false
+    }, 
+    "fatjet_H_mass": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "fatjet_H_mass", 
+      "hist": "(30,30,180)", 
+      "norm": false
+    }, 
+    "jet_7_eta": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_7_eta", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "fatjet_1_pt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "fatjet_1_pt", 
+      "hist": "(30,320.0,405.0)", 
+      "norm": false
+    }, 
+    "muon_eta": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "muon_eta", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_1_btagCSVV2": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_1_btagCSVV2", 
+      "hist": "(30,0.4,0.6)", 
+      "norm": false
+    }, 
+    "weight_central_initial": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "weight_central_initial", 
+      "hist": "(30,0.0,2.2)", 
+      "norm": false
+    }, 
+    "fatjet_H_msoftdrop": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "fatjet_H_msoftdrop", 
+      "hist": "(30,6.5,28.5)", 
+      "norm": false
+    }, 
+    "Diphoton_pt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "Diphoton_pt", 
+      "hist": "(30,58.0,230.0)", 
+      "norm": false
+    }, 
+    "fatjet_1_phi": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "fatjet_1_phi", 
+      "hist": "(30,1.7,3.0)", 
+      "norm": false
+    }, 
+    "jet_4_btagCSVV2": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_4_btagCSVV2", 
+      "hist": "(30,-1080.0,100.0)", 
+      "norm": false
+    }, 
+    "jet_6_pt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_6_pt", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_4_puId": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_4_puId", 
+      "hist": "(110,-1050.0,50.0)", 
+      "norm": false
+    }, 
+    "fatjet_2_eta": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "fatjet_2_eta", 
+      "hist": "(30,-2.2,-0.5)", 
+      "norm": false
+    }, 
+    "jet_2_btagCMVA": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_2_btagCMVA", 
+      "hist": "(30,-1.1,1.1)", 
+      "norm": false
+    }, 
+    "GenHggLeadPhoton_pt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "GenHggLeadPhoton_pt", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_3_genJetIdx": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_3_genJetIdx", 
+      "hist": "(110,-1050.0,50.0)", 
+      "norm": false
+    }, 
+    "jet_2_btagDeepB": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_2_btagDeepB", 
+      "hist": "(30,0.0,0.3)", 
+      "norm": false
+    }, 
+    "jet_4_eta": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_4_eta", 
+      "hist": "(30,-1080.0,0.0)", 
+      "norm": false
+    }, 
+    "jet_5_eta": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_5_eta", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_5_mass": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_5_mass", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_7_btagCSVV2": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_7_btagCSVV2", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_7_puId": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_7_puId", 
+      "hist": "(4,-1001.0,-997.0)", 
+      "norm": false
+    }, 
+    "jet_4_btagCMVA": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_4_btagCMVA", 
+      "hist": "(30,-1080.0,0.0)", 
+      "norm": false
+    }, 
+    "GenHggHiggs_mass": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "GenHggHiggs_mass", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_5_genJetIdx": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_5_genJetIdx", 
+      "hist": "(4,-1001.0,-997.0)", 
+      "norm": false
+    }, 
+    "MET_fiducialGenPhi": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "MET_fiducialGenPhi", 
+      "hist": "(30,-2.6,3.6)", 
+      "norm": false
+    }, 
+    "fatjet_H_inclParTMDV1_HWW4q3qvsQCD": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "fatjet_H_inclParTMDV1_HWW4q3qvsQCD", 
+      "hist": "(30,0.1,0.9)", 
+      "norm": false
+    }, 
+    "LeadPhoton_eta": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "LeadPhoton_eta", 
+      "hist": "(30,-0.2,1.5)", 
+      "norm": false
+    }, 
+    "jet_1_eta": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_1_eta", 
+      "hist": "(30,-1.1,1.4)", 
+      "norm": false
+    }, 
+    "jet_7_btagDeepFlavB": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_7_btagDeepFlavB", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_1_rawFactor": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_1_rawFactor", 
+      "hist": "(30,0.1,0.1)", 
+      "norm": false
+    }, 
+    "jet_4_rawFactor": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_4_rawFactor", 
+      "hist": "(30,-1080.0,0.0)", 
+      "norm": false
+    }, 
+    "electron_phi": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "electron_phi", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_2_mass": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_2_mass", 
+      "hist": "(30,25.9,33.0)", 
+      "norm": false
+    }, 
+    "jet_7_mass": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_7_mass", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "electron_dxy": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "electron_dxy", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "weight_central": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "weight_central", 
+      "hist": "(30,569.8,572.1)", 
+      "norm": false
+    }, 
+    "jet_3_btagDeepFlavB": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_3_btagDeepFlavB", 
+      "hist": "(30,-1080.0,80.0)", 
+      "norm": false
+    }, 
+    "jet_3_btagDeepB": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_3_btagDeepB", 
+      "hist": "(30,-1080.0,80.0)", 
+      "norm": false
+    }, 
+    "jet_5_rawFactor": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_5_rawFactor", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "fatjet_2_msoftdrop": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "fatjet_2_msoftdrop", 
+      "hist": "(30,0.0,29.5)", 
+      "norm": false
+    }, 
+    "jet_5_btagDeepB": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_5_btagDeepB", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "GenHggLeadPhoton_mass": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "GenHggLeadPhoton_mass", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "PuppiMET_pt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "PuppiMET_pt", 
+      "hist": "(30,13.2,25.8)", 
+      "norm": false
+    }, 
+    "weight_central_no_lumi": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "weight_central_no_lumi", 
+      "hist": "(30,12.6,14.9)", 
+      "norm": false
+    }, 
+    "jet_6_qgl": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_6_qgl", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_4_pt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_4_pt", 
+      "hist": "(30,-1100.0,140.0)", 
+      "norm": false
+    }, 
+    "jet_2_pt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_2_pt", 
+      "hist": "(30,234.0,330.0)", 
+      "norm": false
+    }, 
+    "jet_6_btagDeepB": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_6_btagDeepB", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_4_puIdDisc": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_4_puIdDisc", 
+      "hist": "(30,-1080.0,100.0)", 
+      "norm": false
+    }, 
+    "electron_dz": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "electron_dz", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_5_puIdDisc": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_5_puIdDisc", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_7_genJetIdx": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_7_genJetIdx", 
+      "hist": "(4,-1001.0,-997.0)", 
+      "norm": false
+    }, 
+    "fatjet_2_mass": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "fatjet_2_mass", 
+      "hist": "(30,53.5,79.5)", 
+      "norm": false
+    }, 
+    "jet_3_eta": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_3_eta", 
+      "hist": "(30,-1080.0,100.0)", 
+      "norm": false
+    }, 
+    "jet_6_rawFactor": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_6_rawFactor", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "fatjet_1_mass": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "fatjet_1_mass", 
+      "hist": "(30,37.5,72.0)", 
+      "norm": false
+    }, 
+    "jet_1_btagDeepFlavB": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_1_btagDeepFlavB", 
+      "hist": "(30,0.0,0.0)", 
+      "norm": false
+    }, 
+    "jet_5_jetId": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_5_jetId", 
+      "hist": "(4,-1001.0,-997.0)", 
+      "norm": false
+    }, 
+    "jet_1_genJetIdx": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_1_genJetIdx", 
+      "hist": "(4,-2.0,2.0)", 
+      "norm": false
+    }, 
+    "electron_mass": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "electron_mass", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "MET_phi": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "MET_phi", 
+      "hist": "(30,-2.1,2.7)", 
+      "norm": false
+    }, 
+    "jet_7_pt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_7_pt", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_1_puIdDisc": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_1_puIdDisc", 
+      "hist": "(30,1.0,1.0)", 
+      "norm": false
+    }, 
+    "jet_2_genJetIdx": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_2_genJetIdx", 
+      "hist": "(3,0.0,3.0)", 
+      "norm": false
+    }, 
+    "fatjet_3_mass": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "fatjet_3_mass", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "GenHggHiggs_pt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "GenHggHiggs_pt", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "ChsMET_phi": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "ChsMET_phi", 
+      "hist": "(30,1.8,2.3)", 
+      "norm": false
+    }, 
+    "jet_5_qgl": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_5_qgl", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "GenHggLeadPhoton_eta": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "GenHggLeadPhoton_eta", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "fatjet_H_phi": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "fatjet_H_phi", 
+      "hist": "(30,-3,3)", 
+      "norm": false
+    }, 
+    "fatjet_3_pt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "fatjet_3_pt", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_5_puId": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_5_puId", 
+      "hist": "(4,-1001.0,-997.0)", 
+      "norm": false
+    }, 
+    "jet_1_btagDeepB": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_1_btagDeepB", 
+      "hist": "(30,0.1,0.1)", 
+      "norm": false
+    }, 
+    "muon_pfRelIso03_all": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "muon_pfRelIso03_all", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "SubleadPhoton_genPartFlav": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "SubleadPhoton_genPartFlav", 
+      "hist": "(3,0.0,3.0)", 
+      "norm": false
+    }, 
+    "jet_2_jetId": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_2_jetId", 
+      "hist": "(4,4.0,8.0)", 
+      "norm": false
+    }, 
+    "fatjet_2_pt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "fatjet_2_pt", 
+      "hist": "(30,288.0,350.0)", 
+      "norm": false
+    }, 
+    "MET_MetUnclustEnUpDeltaY": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "MET_MetUnclustEnUpDeltaY", 
+      "hist": "(30,-1.1,4.4)", 
+      "norm": false
+    }, 
+    "MET_MetUnclustEnUpDeltaX": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "MET_MetUnclustEnUpDeltaX", 
+      "hist": "(30,-1.1,4.4)", 
+      "norm": false
+    }, 
+    "jet_5_btagDeepFlavB": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_5_btagDeepFlavB", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_2_phi": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_2_phi", 
+      "hist": "(30,-2.0,-0.2)", 
+      "norm": false
+    }, 
+    "ChsMET_pt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "ChsMET_pt", 
+      "hist": "(30,20.6,36.4)", 
+      "norm": false
+    }, 
+    "jet_2_puIdDisc": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_2_puIdDisc", 
+      "hist": "(30,1.0,1.0)", 
+      "norm": false
+    }, 
+    "electron_eta": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "electron_eta", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "fatjet_3_phi": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "fatjet_3_phi", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "muon_dxy": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "muon_dxy", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "Diphoton_dR": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "Diphoton_dR", 
+      "hist": "(30,1.3,2.2)", 
+      "norm": false
+    }, 
+    "jet_1_jetId": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_1_jetId", 
+      "hist": "(4,4.0,8.0)", 
+      "norm": false
+    }, 
+    "muon_charge": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "muon_charge", 
+      "hist": "(4,-1001.0,-997.0)", 
+      "norm": false
+    }, 
+    "jet_6_puIdDisc": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_6_puIdDisc", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "LeadPhoton_genPartFlav": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "LeadPhoton_genPartFlav", 
+      "hist": "(3,0.0,3.0)", 
+      "norm": false
+    }, 
+    "PuppiMET_phiJESUp": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "PuppiMET_phiJESUp", 
+      "hist": "(30,-2.4,1.1)", 
+      "norm": false
+    }, 
+    "LeadPhoton_phi": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "LeadPhoton_phi", 
+      "hist": "(30,-0.1,0.9)", 
+      "norm": false
+    }, 
+    "MET_sumEt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "MET_sumEt", 
+      "hist": "(30,2580.0,3250.0)", 
+      "norm": false
+    }, 
+    "jet_1_btagCMVA": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_1_btagCMVA", 
+      "hist": "(30,-0.7,-0.1)", 
+      "norm": false
+    }, 
+    "electron_charge": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "electron_charge", 
+      "hist": "(4,-1001.0,-997.0)", 
+      "norm": false
+    }, 
+    "muon_isGlobal": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "muon_isGlobal", 
+      "hist": "(4,-1001.0,-997.0)", 
+      "norm": false
+    }, 
+    "jet_3_phi": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_3_phi", 
+      "hist": "(30,-1080.0,0.0)", 
+      "norm": false
+    }, 
+    "GenHggHiggs_dR": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "GenHggHiggs_dR", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_2_puId": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_2_puId", 
+      "hist": "(4,5.0,9.0)", 
+      "norm": false
+    }, 
+    "electron_pfRelIso03_all": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "electron_pfRelIso03_all", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "MET_sumPtUnclustered": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "MET_sumPtUnclustered", 
+      "hist": "(30,1920.0,2430.0)", 
+      "norm": false
+    }, 
+    "electron_mvaFall17V2Iso_WP90": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "electron_mvaFall17V2Iso_WP90", 
+      "hist": "(4,-1001.0,-997.0)", 
+      "norm": false
+    }, 
+    "SubleadPhoton_mass": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "SubleadPhoton_mass", 
+      "hist": "(30,-0.0,0.0)", 
+      "norm": false
+    }, 
+    "fatjet_2_phi": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "fatjet_2_phi", 
+      "hist": "(30,-2.0,-0.2)", 
+      "norm": false
+    }, 
+    "muon_pt": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "muon_pt", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_2_btagCSVV2": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_2_btagCSVV2", 
+      "hist": "(30,0.0,1.0)", 
+      "norm": false
+    }, 
+    "jet_2_btagDeepFlavB": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_2_btagDeepFlavB", 
+      "hist": "(30,0.0,0.1)", 
+      "norm": false
+    }, 
+    "jet_5_btagCMVA": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_5_btagCMVA", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "nGoodAK4jets": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "nGoodAK4jets", 
+      "hist": "(4,1.0,5.0)", 
+      "norm": false
+    }, 
+    "fatjet_3_eta": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "fatjet_3_eta", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_2_rawFactor": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_2_rawFactor", 
+      "hist": "(30,0.1,0.1)", 
+      "norm": false
+    }, 
+    "jet_4_genJetIdx": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_4_genJetIdx", 
+      "hist": "(110,-1050.0,50.0)", 
+      "norm": false
+    }, 
+    "muon_mediumId": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "muon_mediumId", 
+      "hist": "(4,-1001.0,-997.0)", 
+      "norm": false
+    }, 
+    "jet_3_puId": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_3_puId", 
+      "hist": "(110,-1050.0,50.0)", 
+      "norm": false
+    }, 
+    "jet_3_jetId": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_3_jetId", 
+      "hist": "(110,-1050.0,50.0)", 
+      "norm": false
+    }, 
+    "jet_3_btagCMVA": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_3_btagCMVA", 
+      "hist": "(30,-1080.0,0.0)", 
+      "norm": false
+    }, 
+    "jet_4_jetId": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_4_jetId", 
+      "hist": "(110,-1050.0,50.0)", 
+      "norm": false
+    }, 
+    "jet_7_rawFactor": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_7_rawFactor", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "GenHggHiggs_phi": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "GenHggHiggs_phi", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "jet_7_qgl": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "jet_7_qgl", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "GenHggLeadPhoton_phi": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "GenHggLeadPhoton_phi", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }, 
+    "fatjet_3_msoftdrop": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "fatjet_3_msoftdrop", 
+      "hist": "(30,-1000.2,-997.8)", 
+      "norm": false
+    }
+  }, 
+  "processes": {
+    "Data": {
+      "files": "Data_cat1",
+      "cut": "(( (Diphoton_mass<115.0 || Diphoton_mass>135.0) && (Diphoton_minID > -0.9) ))", 
+      "title": "Data", 
+      "color": 1, 
+      "tree": "cat1", 
+      "label": "Data", 
+      "order": 0
+    },
+    "Data_Driven_QCD": {
+      "files": "DataDriven_data_cat1", 
+      "cut": "(0.548648 *( (Diphoton_mass<115.0 || Diphoton_mass>135.0) && (Diphoton_minID > -0.9) ))", 
+      "title": "Data_Driven_QCD", 
+      "color": 418, 
+      "tree": "cat1", 
+      "label": "background"
+        },
+    "diphoton_jets": {
+      "files": "UL17_DiphotonJetsBox", 
+      "cut": "(1.2599* ( (Diphoton_mass<115.0 || Diphoton_mass>135.0) && (Diphoton_minID > -0.9) )  )", 
+      "title": "diphoton_jets", 
+      "color": 594, 
+      "tree": "cat1", 
+      "label": "background"
+        }
+
+  }, 
+  "options": {
+    "label": [
+      "WWgg data/mc"
+    ],
+    "treename": "cat1", 
+    "weight_branch": "weight_central", 
+    "cutflow": [
+      ""
+    ], 
+    "ratio_range": [
+      0,
+      2
+    ], 
+    "kfactor": 1,
+    "output_label": "", 
+    "intlumi": 1, 
+    "ratioplot": true, 
+    "categories": [], 
+    "legend": [
+      ""
+    ]
+  }
+}
+

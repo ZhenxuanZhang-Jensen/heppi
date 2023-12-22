@@ -212,8 +212,16 @@
       "blind": "", 
       "cut": "", 
       "log": true, 
-      "title": "DiphotonMVA_self", 
+      "title": "Untransformed retrained BDT", 
       "hist": "(100,-1.2,1.2)", 
+      "norm": false
+    }, 
+    "DiphotonMVA_self_tran": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "Transformed retrained BDT", 
+      "hist": "(100,0,1)", 
       "norm": false
     }, 
     "sigmawv": {
@@ -285,34 +293,26 @@
       "cut": "", 
       "log": true, 
       "title": "CMS_hgg_mass", 
-      "hist": "(100,55.0,125.0)", 
+      "hist": "(100,80.0,100.0)", 
       "norm": false
     }
   }, 
   "processes": {
     "Data": {
-      "files": "SingleEleData_preVFP_Zee_BDT_ptWgt", 
+      "files": "SingleEleData_preVFP_Zee_BDT_tran_UL16_preVFP_all_samples_mass_window", 
       "cut": "((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0))", 
       "title": "Data", 
-      "color": 138, 
+      "color": 1, 
       "tree": "Data_13TeV_UntaggedTag", 
       "label": "Data", 
       "order": 0
     },
     "Z -> ee": {
-      "files": "DYMC_2016_PreVFP_Summer20UL_Zee_Syst_BDT_ptWgt_all", 
+      "files": "DYMC_2016_PreVFP_Summer20UL_Zee_Syst_BDT_Tran_no_masswindow_msweight_no_sigmarv_all", 
       "cut": "PTWeight*((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0) )", 
       "title": "DYToLL", 
       "color": 122, 
       "tree": "DYToLL_13TeV_UntaggedTag", 
-      "label": "background"
-        },
-    "b2": {
-      "files": "XGboost_diphoMVA_UL18_newSig_oldModel_tmp", 
-      "cut": "PTWeight*((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0) )", 
-      "title": "DataDriven_QCD", 
-      "color": 123, 
-      "tree": "DataDriven_QCD", 
       "label": "background"
         }
   }, 
@@ -339,7 +339,7 @@
       0.5, 
       1.5
     ], 
-    "kfactor": 14.842,
+    "kfactor": 37.99552,
     "output_label": "", 
     "intlumi": 1, 
     "ratioplot": true, 

@@ -6,7 +6,7 @@ cut_line_color             = 134
 cut_line_style             = 7
 
 #== error style
-error_band_color           = 136
+error_band_color           = 135
 error_band_style           = 1001#3004
 error_band_opacity         = 0.7
 

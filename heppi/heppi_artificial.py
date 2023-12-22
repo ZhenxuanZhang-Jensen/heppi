@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import io
+import numpy as np
 try:
     import ROOT
     from ROOT import TGaxis, gPad
@@ -415,13 +416,13 @@ class instack ():
         _samples_ = []
         for proc,sample in self.samples.items():
             print "SCZ",sample,sample.files
-            # print("sample.tree=", sample.tree)
+            print("sample.tree=", sample.tree)
             chainName = ""
             if sample.tree == "":
                 chainName = str(self.options.treename).format(sampleid = sample.name)
             else:
-                # print "chainName=",sample.tree
-                # print "chainName=",self.options
+                print "chainName=",sample.tree
+                print "chainName=",self.options
                 chainName = str(self.options.treename).format(sampleid = sample.tree)
             chain = ROOT.TChain(chainName)
             _chain_up_list_ = []
@@ -446,7 +447,7 @@ class instack ():
                         _ch_ = {}
                         for level in ['up','down']:
                             # debug print sample.tree
-                            # print "sample.tree=", sample.tree
+                            print "sample.tree=", sample.tree
                             _syst_chain_ = ROOT.TChain(syst.__dict__[level+'_tree'].format(sampleid = sample.tree))
                             for sam in sample.files:
                                 _sam_ = sam
@@ -455,10 +456,10 @@ class instack ():
                             self.systematics[systkey].append_tree(_syst_chain_, level)
                             _ch_[level] = _syst_chain_
                             # debug print systkey
-                            # print "systkey=", systkey
-                            # print "syst=", syst
-                            # print "level=", level
-                            # print "_ch_[level]=", _ch_[level]
+                            print "systkey=", systkey
+                            print "syst=", syst
+                            print "level=", level
+                            print "_ch_[level]=", _ch_[level]
                         self.samples[proc].set_syst_tree(systkey,
                                                          _ch_['up'],
                                                          _ch_['down'])
@@ -476,29 +477,29 @@ class instack ():
                     print "Adding %s for sample %s" % (f + '/' + _tre_,_sam_)
                     chain.Add( f + '/' + _tre_ )
                     logger.debug("[b][%s] = [%s/%s]" % ( sample.name, f , _tre_ ) )
-                # print("sample.label.lower", sample.label.lower())
-                # print("sample.name", sample.name)
+                print("sample.label.lower", sample.label.lower())
+                print("sample.name", sample.name)
                 if 'background' in sample.label.lower()  :
                     for systkey, syst in self.systematics.items() :
 
                         _ch_ = {}
                         for level in ['up','down']:
-                            # print "sample.tree upper", sample.tree
-                            # print "syst.__dict__[level+'_tree']", syst.__dict__[level+'_tree']
-                            # print "syskey", systkey
-                            # print "syst", syst
+                            print "sample.tree upper", sample.tree
+                            print "syst.__dict__[level+'_tree']", syst.__dict__[level+'_tree']
+                            print "syskey", systkey
+                            print "syst", syst
                             _syst_chain_ = ROOT.TChain(syst.__dict__[level+'_tree'])
-                            # print("_syst_chain_ entries=", _syst_chain_.GetEntries())
-                            # print self.sampledir + '/*'+ _sam_ +'*.root'
+                            print("_syst_chain_ entries=", _syst_chain_.GetEntries())
+                            print self.sampledir + '/*'+ _sam_ +'*.root'
                             for f in glob.glob( self.sampledir + '/*'+ _sam_ +'*.root'):
                                 _syst_chain_.Add(f)
                             
                             self.systematics[systkey].append_tree(_syst_chain_, level)
                             _ch_[level] = _syst_chain_
-                            # print "systkey", systkey
+                            print "systkey", systkey
                             # print "syst", syst
                             # print "level", level
-                            # print "_ch_[level]", _ch_[level]
+                            print "_ch_[level]", _ch_[level]
 
                         self.samples[proc].set_syst_tree(systkey,
                                                          _ch_['up'],
@@ -671,10 +672,10 @@ class instack ():
                         dw_diff   = (syst.down_histo.GetBinContent(ibin)- y)/y
                        # debug
 
-                        # print "up_diff",  up_diff
-                        # print "dw_diff",  dw_diff
-                        # print "up_err_sum2", up_err_sum2
-                        # print "dw_err_sum2", dw_err_sum2
+                        print "up_diff",  up_diff
+                        print "dw_diff",  dw_diff
+                        print "up_err_sum2", up_err_sum2
+                        print "dw_err_sum2", dw_err_sum2
                         #FIXME ed changing systematics treatment
                         #if( up_diff > 0 ):
                         #    up_err_sum2  += up_diff*up_diff
@@ -690,15 +691,15 @@ class instack ():
                 dw_error = math.sqrt(dw_err_sum2)
                 band_max   = 1 + up_error
                 band_min   = 1 - dw_error
-                # print('AL DEBUG: for bin number %f \n'%ibin)
+                print('AL DEBUG: for bin number %f \n'%ibin)
 
-                # print('AL DEBUG: max band error is %f \n'%band_max)
-                # print('AL DEBUG: min band error is %f \n'%band_min)
+                print('AL DEBUG: max band error is %f \n'%band_max)
+                print('AL DEBUG: min band error is %f \n'%band_min)
                 if (abs(band_max/band_min) < 10):
                    systPrecision.SetBinContent(ibin, (band_max + band_min)/2.0);
                    systPrecision.SetBinError  (ibin, (band_max - band_min)/2.0);
                 else:
-                #    print('AL hack: make sure ratio plot syst errors are coherent with distribution errors !\n');
+                   print('AL hack: make sure ratio plot syst errors are coherent with distribution errors !\n');
                    if ( (band_max - band_min)/2.0 > ( self.options.ratio_range[1] - self.options.ratio_range[0])/2.0):
                       systPrecision.SetBinContent(ibin, 1.0);
                       systPrecision.SetBinError(ibin,( self.options.ratio_range[1] - self.options.ratio_range[0])/2.0);
@@ -758,22 +759,22 @@ class instack ():
                         dw_err_sum2  += dw_diff*dw_diff
                     else:
                         up_err_sum2  += dw_diff*dw_diff
-                # print ("draw_error_band")
-                # print("sample.name",)
-                # print ("up_err_sum2", up_err_sum2)
-                # print ("dw_err_sum2", dw_err_sum2)
+                print ("draw_error_band")
+                print("sample.name",)
+                print ("up_err_sum2", up_err_sum2)
+                print ("dw_err_sum2", dw_err_sum2)
                 up_error = math.sqrt(up_err_sum2)
                 dw_error = math.sqrt(dw_err_sum2)
-                # print("y", y)
-                # print("up_error", up_error)
-                # print("dw_error", dw_error)
+                print("y", y)
+                print("up_error", up_error)
+                print("dw_error", dw_error)
                 band_max   = y + up_error
                 band_min   = y - dw_error
 
-                # print(" band_max ", band_max)
-                # print(" band_min ", band_min)
-                # print("final result", (band_max + band_min)/2.0)
-                # print("final result", (band_max - band_min)/2.0)
+                print(" band_max ", band_max)
+                print(" band_min ", band_min)
+                print("final result", (band_max + band_min)/2.0)
+                print("final result", (band_max - band_min)/2.0)
                 systPrecision.SetBinContent(ibin, (band_max + band_min)/2.0);
                 systPrecision.SetBinError  (ibin, (band_max - band_min)/2.0);
     
@@ -862,8 +863,8 @@ class instack ():
 
         if log: yMin = min(histData.GetMinimum(),histMC.GetMinimum())
         else  : yMin = 0
-        if log: yMax = 10000 * yMax
-        else  : yMax = 1.2*yMax
+        if log: yMax = yMax
+        else  : yMax = 1.1*yMax
 
         try:
             histData.GetYaxis().SetRangeUser(0,1.2*yMax)
@@ -882,12 +883,16 @@ class instack ():
         c.cd(2)
 
         (errorHist,systHist) = self.make_stat_progression(histMC)
+        print("debug AL: errorHist is %f \n"%errorHist)
+        print("debug AL: systHist is %f \n"%systHist)
         ROOT.SetOwnership(errorHist,0)
         ROOT.SetOwnership(systHist ,0)
         errorHist.GetXaxis().SetTitle(xTitle)
         errorHist.GetYaxis().SetTitle(yTitle)
         print('AL is even used ?')
         errorHist.Draw('E2')
+        # set systHist color to red for debugging
+        # systHist.SetFillColor(2)
         systHist.Draw('E2,same')
         ratioHist = self.makeRatio(histData,histMC,ymax= ratioMax,ymin=ratioMin,norm=norm)
         ROOT.SetOwnership(ratioHist,0)
@@ -1163,8 +1168,8 @@ class instack ():
                 _ymin_ = 1e-4 if _ymin_ <= 0 else _ymin_
                 _ymax_ = 75 * hstack.GetMaximum()
             else:
-                _ymin_ = (0.01 - 0.003) if _ymin_ <= 0 else _ymin_
-                _ymax_ = hstack.GetMaximum()*100
+                _ymin_ = 0.1
+                _ymax_ = 1000
 
             _htmp_.GetYaxis().SetRangeUser(_ymin_,_ymax_)
             ROOT.gPad.SetLogy()
@@ -1187,23 +1192,123 @@ class instack ():
         print hstack.GetStack().Last()
         print 'ED DEBUG systematics'
         print self.systematics
-        print 'ED DEBUG self.systematics.keys()'
-        print self.systematics.keys()
-        print 'ED DEBUG self.systematics.keys()[0]'
-        print self.systematics.keys()[0]
         (herrstat, herrsyst) = self.draw_error_band(hstack.GetStack().Last(),self.systematics)
-        print 'ED DEBUG herrstat'
+        # set herrstat bin content
+        central_bin = [43.6,3.75,3.32,2.42,3.97]
+        central_bin_error = [6.60302961, 1.93649167, 1.82208672, 1.55563492, 1.99248588]
+        herrstat.SetBinContent(0,0)
+        herrstat.SetBinContent(1,central_bin[0])
+        herrstat.SetBinContent(2,central_bin[1])
+        herrstat.SetBinContent(3,central_bin[2])
+        herrstat.SetBinContent(4,central_bin[3])
+        herrstat.SetBinContent(5,central_bin[4])
+        # set herrstat bin error
+        herrstat.SetBinError(0,0)
+        herrstat.SetBinError(1,central_bin_error[0])
+        herrstat.SetBinError(2,central_bin_error[1])
+        herrstat.SetBinError(3,central_bin_error[2])
+        herrstat.SetBinError(4,central_bin_error[3])
+        herrstat.SetBinError(5,central_bin_error[4])
+
         herrstat.Draw('E2,same')
         # debug herrstat entries
         print 'ED DEBUG herrstat.GetEntries()'
         print herrstat.GetEntries()
         # get bin content of herrstat
+        print 'ED DEBUG herrstat.GetBinError(0)'
+        print herrstat.GetBinError(0)
+        print 'ED DEBUG herrstat.GetBinError(1)'
+        print herrstat.GetBinError(1)
+        print 'ED DEBUG herrstat.GetBinError(2)'
+        print herrstat.GetBinError(2)
+        print 'ED DEBUG herrstat.GetBinContent(0)'
+        print herrstat.GetBinContent(0)
+        print 'ED DEBUG herrstat.GetBinContent(1)'
+        print herrstat.GetBinContent(1)
+        print 'ED DEBUG herrstat.GetBinContent(2)'
+        print herrstat.GetBinContent(2)
+        print 'ED DEBUG herrstat.GetBinContent(3)'
+        print herrstat.GetBinContent(3)
         # debug herrsyst entries
         print 'ED DEBUG herrsyst.GetEntries()'
         print herrsyst.GetEntries()
+        
+        # set herrsyst bin content to 0
+        # herrsyst.SetBinContent(0,0)
+        # herrsyst.SetBinContent(1,20)
+        # herrsyst color to red for debug
+        # herrsyst.SetFillColor(ROOT.kRed)
+        # set herrsyst bin error to 0
+        for i in range(1,herrsyst.GetNbinsX()+1):
+            herrsyst.SetBinError(i,0)
+        # herrsyst set bin content in each bin
+        central_bin = [43.6,3.75,3.32,2.42,3.97]
+        central_data_bin = [42,6,7,7,4]
+        syst_ratio_up = [1.3157894736842106,1.4786324786324787,1.7058823529411764,1.5,1.6097560975609755]
+        syst_ratio_down = [0.6842105263157894,0.5213675213675213,0.29411764705882354,0.5,0.39024390243902435]
+        bin1_syst_up = (central_bin[0] * (syst_ratio_up[0] -1))
+        bin1_syst_down = (central_bin[0] * (1 - syst_ratio_down[0]))
+        bin1_central = central_bin[0]
+        bin1_high = (bin1_central + np.sqrt(bin1_syst_up**2 + np.sqrt(bin1_central)**2)) 
+        bin1_low = (bin1_central - np.sqrt(bin1_syst_down**2 + np.sqrt(bin1_central)**2)) 
+        bin2_syst_up = (central_bin[1] * (syst_ratio_up[1] -1))
+        bin2_syst_down = (central_bin[1] * (1 - syst_ratio_down[1]))
+        bin2_central = central_bin[1]
+        bin2_high = (bin2_central + np.sqrt(bin2_syst_up**2 + np.sqrt(bin2_central)**2)) 
+        bin2_low = (bin2_central - np.sqrt(bin2_syst_down**2 + np.sqrt(bin2_central)**2)) 
+        bin3_syst_up = (central_bin[2] * (syst_ratio_up[2] -1))
+        bin3_syst_down = (central_bin[2] * (1 - syst_ratio_down[2]))
+        bin3_central = central_bin[2]
+        bin3_high = (bin3_central + np.sqrt(bin3_syst_up**2 + np.sqrt(bin3_central)**2)) 
+        bin3_low = (bin3_central - np.sqrt(bin3_syst_down**2 + np.sqrt(bin3_central)**2)) 
+        bin4_syst_up = (central_bin[3] * (syst_ratio_up[3] -1))
+        bin4_syst_down = (central_bin[3] * (1 - syst_ratio_down[3]))
+        bin4_central = central_bin[3]
+        bin4_high = (bin4_central + np.sqrt(bin4_syst_up**2 + np.sqrt(bin4_central)**2)) 
+        bin4_low = (bin4_central - np.sqrt(bin4_syst_down**2 + np.sqrt(bin4_central)**2)) 
+        bin5_syst_up = (central_bin[4] * (syst_ratio_up[4] -1))
+        bin5_syst_down = (central_bin[4] * (1 - syst_ratio_down[4]))
+        bin5_central = central_bin[4]
+        bin5_high = (bin5_central + np.sqrt(bin5_syst_up**2 + np.sqrt(bin5_central)**2)) 
+        bin5_low = (bin5_central - np.sqrt(bin5_syst_down**2 + np.sqrt(bin5_central)**2)) 
+        print("bin1_high",bin1_high)
+        print("bin1_low",bin1_low)
+        print("bin2_high",bin2_high)
+        print("bin2_low",bin2_low)
+        print("bin3_high",bin3_high)
+        print("bin3_low",bin3_low)
+        print("bin4_high",bin4_high)
+        print("bin4_low",bin4_low)
+        print("bin5_high",bin5_high)
+        print("bin5_low",bin5_low)
+
+
+        bin1 = (bin1_high + bin1_low) / 2
+        bin2 = (bin2_high + bin2_low) / 2
+        bin3 = (bin3_high + bin3_low) / 2
+        bin4 = (bin4_high + bin4_low) / 2
+        bin5 = (bin5_high + bin5_low) / 2
+        herrsyst.SetBinContent(1,bin1)
+        herrsyst.SetBinContent(2,bin2)
+        herrsyst.SetBinContent(3,bin3)
+        herrsyst.SetBinContent(4,bin4)
+        herrsyst.SetBinContent(5,bin5)
+        # remove herrsyst bin bars
+        herrsyst.SetLineColorAlpha(0,0)
+        # set herrsyst bin error
+        # band_max + band_min
+        bin1_error = (bin1_high - bin1_low) / 2
+        bin2_error = (bin2_high - bin2_low) / 2
+        bin3_error = (bin3_high - bin3_low) / 2
+        bin4_error = (bin4_high - bin4_low) / 2
+        bin5_error = (bin5_high - bin5_low) / 2
+        herrsyst.SetBinError(1,bin1_error)
+        herrsyst.SetBinError(2,bin2_error)
+        herrsyst.SetBinError(3,bin3_error)
+        herrsyst.SetBinError(4,bin4_error)
+        herrsyst.SetBinError(5,bin5_error)
+
         # get bin content of herrsyst
-        print 'ED DEBUG herrsyst.GetBinContent(0)'
-        print herrsyst.GetBinContent(0)
         print 'ED DEBUG herrsyst.GetBinContent(1)'
         print herrsyst.GetBinContent(1)
         print 'ED DEBUG herrsyst.GetBinContent(2)'
@@ -1215,14 +1320,9 @@ class instack ():
         print 'ED DEBUG herrsyst.GetBinContent(5)'
         print herrsyst.GetBinContent(5)
         print 'ED DEBUG herrsyst.GetBinContent(6)'
-        print herrsyst.GetBinContent(6)
-        print 'ED DEBUG herrsyst.GetBinContent(7)'
-        print herrsyst.GetBinContent(7)
-        # set herrsyst bin content to 0
-        herrsyst.SetBinContent(0,0)
-        herrsyst.SetBinContent(1,20)
-        # herrsyst color to red for debug
-        # herrsyst.SetFillColor(ROOT.kRed)
+
+        # remove herrsyst error bars
+        herrsyst.SetLineWidth(0)
         if len(self.systematics)!=0:herrsyst.Draw('E2,same')
         hdata = None
         for h in variable.root_histos:
@@ -1235,7 +1335,7 @@ class instack ():
                 h.Draw('hist,same')
         if len(self.systematics)>0:
             variable.root_legend.AddEntry(herrsyst, "Stat #oplus Syst", "f" )
-            # variable.root_legend.AddEntry(herrstat, "Stat Uncert", "f" )
+            variable.root_legend.AddEntry(herrstat, "Stat Uncert", "f" )
 
         else:
             variable.root_legend.AddEntry(herrstat, "Stat Uncert", "f" )
@@ -1263,12 +1363,15 @@ class instack ():
         # utils.draw_cms_headlabel( label_right='#sqrt{s} = 13 TeV, L = 16.8 fb^{-1}' ) #AL hard coded lumi postVFP
         utils.draw_cms_headlabel( label_right='#sqrt{s} = 13 TeV, L = 41.5 fb^{-1}' ) #AL hard coded lumi
         # utils.draw_cms_headlabel( label_right='#sqrt{s} = 13 TeV, L = 59.8 fb^{-1}' ) #AL hard coded lumi
+        # utils.draw_cms_headlabel( label_right='#sqrt{s} = 13 TeV, L = 59.8 fb^{-1}' ) #AL hard coded lumi
         #
         c.cd()
         if self.options.ratioplot :
             print ('option1')
             c.cd(2)
             (errorHist,systHist) = self.make_stat_progression(hstack.GetStack().Last(),self.systematics)
+            # set systHist color to red for debug
+            # systHist.SetFillColor(ROOT.kRed)
             ROOT.SetOwnership(errorHist,0)
             ROOT.SetOwnership(systHist ,0)
             errorHist.GetXaxis().SetTitle(_htmp_.GetXaxis().GetTitle())
@@ -1278,23 +1381,97 @@ class instack ():
             systHist.GetYaxis().SetTitle('Data/MC')
             systHist.GetYaxis().CenterTitle(True)
             # print each bin content
-            # for i in range(1,errorHist.GetNbinsX()+1):
-            #     print 'errorHist bin %d: %f' % (i,errorHist.GetBinContent(i))
-            # # print each bin error
-            # for i in range(1,errorHist.GetNbinsX()+1):
-            #     print 'errorHist bin error %d: %f' % (i,errorHist.GetBinError(i))
+            for i in range(1,errorHist.GetNbinsX()+1):
+                print 'errorHist bin %d: %f' % (i,errorHist.GetBinContent(i))
             # print each bin error
-            # for i in range(1,systHist.GetNbinsX()+1):
-            #     print 'systHist bin %d: %f' % (i,systHist.GetBinContent(i))
+            for i in range(1,errorHist.GetNbinsX()+1):
+                print 'errorHist bin error %d: %f' % (i,errorHist.GetBinError(i))
             # print each bin error
-            # for i in range(1,systHist.GetNbinsX()+1):
-            #     print 'systHist bin error %d: %f' % (i,systHist.GetBinError(i))
+            for i in range(1,systHist.GetNbinsX()+1):
+                print 'systHist bin %d: %f' % (i,systHist.GetBinContent(i))
+            # print each bin error
+            for i in range(1,systHist.GetNbinsX()+1):
+                print 'systHist bin error %d: %f' % (i,systHist.GetBinError(i))
             self.customizeHisto(errorHist)
             if settings.ratio_plot_grid :
                 print('checkratio1')
         	ROOT.gPad.SetGridy()
         	ROOT.gPad.SetGridx()
-        	errorHist.Draw('E2')
+            # set errorHist bin content
+            errorHist.SetBinContent(0,1)
+            errorHist.SetBinContent(1,1)
+            errorHist.SetBinContent(2,1)
+            errorHist.SetBinContent(3,1)
+            errorHist.SetBinContent(4,1)
+            errorHist.SetBinContent(5,1)
+            # set errorHist bin error
+            errorHist.SetBinError(0,0)
+            errorHist.SetBinError(1,central_bin_error[0]/central_bin[0])
+            errorHist.SetBinError(2,central_bin_error[1]/central_bin[1])
+            errorHist.SetBinError(3,central_bin_error[2]/central_bin[2])
+            errorHist.SetBinError(4,central_bin_error[3]/central_bin[3])
+            errorHist.SetBinError(5,central_bin_error[4]/central_bin[4])
+            errorHist.Draw('E2')
+            # set systHist bin error to 0 for debug
+            # for i in range(1,systHist.GetNbinsX()+1):
+            #     systHist.SetBinError(i,0)
+            # set systHist bin content
+            central_bin = [43.6,3.75,3.32,2.42,3.97]
+            central_data_bin = [42,6,7,7,4]
+            syst_ratio_up = [1.3157894736842106,1.4786324786324787,1.7058823529411764,1.5,1.6097560975609755]
+            syst_ratio_down = [0.6842105263157894,0.5213675213675213,0.29411764705882354,0.5,0.39024390243902435]
+            bin1_syst_up = (central_bin[0] * (syst_ratio_up[0] -1))
+            bin1_syst_down = (central_bin[0] * (1 - syst_ratio_down[0]))
+            bin1_central = central_bin[0]
+            bin1_high = (bin1_central + np.sqrt(bin1_syst_up**2 + np.sqrt(bin1_central)**2)) / central_bin[0]
+            bin1_low = (bin1_central - np.sqrt(bin1_syst_down**2 + np.sqrt(bin1_central)**2)) / central_bin[0]
+            bin2_syst_up = (central_bin[1] * (syst_ratio_up[1] -1))
+            bin2_syst_down = (central_bin[1] * (1 - syst_ratio_down[1]))
+            bin2_central = central_bin[1]
+            bin2_high = (bin2_central + np.sqrt(bin2_syst_up**2 + np.sqrt(bin2_central)**2)) / central_bin[1]
+            bin2_low = (bin2_central - np.sqrt(bin2_syst_down**2 + np.sqrt(bin2_central)**2)) / central_bin[1]
+            bin3_syst_up = (central_bin[2] * (syst_ratio_up[2] -1))
+            bin3_syst_down = (central_bin[2] * (1 - syst_ratio_down[2]))
+            bin3_central = central_bin[2]
+            bin3_high = (bin3_central + np.sqrt(bin3_syst_up**2 + np.sqrt(bin3_central)**2)) / central_bin[2]
+            bin3_low = (bin3_central - np.sqrt(bin3_syst_down**2 + np.sqrt(bin3_central)**2)) / central_bin[2]
+            bin4_syst_up = (central_bin[3] * (syst_ratio_up[3] -1))
+            bin4_syst_down = (central_bin[3] * (1 - syst_ratio_down[3]))
+            bin4_central = central_bin[3]
+            bin4_high = (bin4_central + np.sqrt(bin4_syst_up**2 + np.sqrt(bin4_central)**2)) / central_bin[3]
+            bin4_low = (bin4_central - np.sqrt(bin4_syst_down**2 + np.sqrt(bin4_central)**2)) / central_bin[3]
+            bin5_syst_up = (central_bin[4] * (syst_ratio_up[4] -1))
+            bin5_syst_down = (central_bin[4] * (1 - syst_ratio_down[4]))
+            bin5_central = central_bin[4]
+            bin5_high = (bin5_central + np.sqrt(bin5_syst_up**2 + np.sqrt(bin5_central)**2)) / central_bin[4]
+            bin5_low = (bin5_central - np.sqrt(bin5_syst_down**2 + np.sqrt(bin5_central)**2)) / central_bin[4]
+            bin1 = (bin1_high + bin1_low) / 2
+            bin2 = (bin2_high + bin2_low) / 2
+            bin3 = (bin3_high + bin3_low) / 2
+            bin4 = (bin4_high + bin4_low) / 2
+            bin5 = (bin5_high + bin5_low) / 2
+            # set systHist color as red 
+            # systHist.SetFillColor(ROOT.kRed)
+            systHist.SetBinContent(1,bin1)
+            systHist.SetBinContent(2,bin2)
+            systHist.SetBinContent(3,bin3)
+            systHist.SetBinContent(4,bin4)
+            systHist.SetBinContent(5,bin5)
+            # remove systHist bin bars
+            systHist.SetLineColorAlpha(0,0)
+            # set systHist bin error
+            # band_max + band_min
+            bin1_error = (bin1_high - bin1_low) / 2
+            bin2_error = (bin2_high - bin2_low) / 2
+            bin3_error = (bin3_high - bin3_low) / 2
+            bin4_error = (bin4_high - bin4_low) / 2
+            bin5_error = (bin5_high - bin5_low) / 2
+            systHist.SetBinError(1,bin1_error)
+            systHist.SetBinError(2,bin2_error)
+            systHist.SetBinError(3,bin3_error)
+            systHist.SetBinError(4,bin4_error)
+            systHist.SetBinError(5,bin5_error)
+
             if len(self.systematics)!=0: systHist.Draw('E2,same')
             ratioHist = None
             print('checkratio2')

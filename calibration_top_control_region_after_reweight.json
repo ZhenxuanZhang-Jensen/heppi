@@ -1,0 +1,66 @@
+{
+  "variables": {
+    "fatjetTop_Hqqqq_vsQCDTop": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "H3q4q score", 
+      "hist": "(5,-0.0002,1.0002)", 
+      "norm": false
+    }, 
+    "weight_central": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "weight_central", 
+      "hist": "(1,-100,100)", 
+      "norm": false
+    }
+  }, 
+  "processes": {
+    "Data": {
+      "files": "events_data_top_control_region_slimed", 
+      "cut": "", 
+      "title": "Data", 
+      "color": 1, 
+      "tree": "Events", 
+      "label": "Data"
+    },
+    "matched": {
+      "files": "eventsTTInclusive_unmatched_sys_all_slimed_with_matched_unmatched", 
+      "cut": "", 
+      "title": "TTs'(after calibration)", 
+      "color": 122, 
+      "tree": "Events", 
+      "label": "background"
+        }
+  }, 
+  "systematics": {
+    "LPweight": {
+        "up_tree" : "LP_weight_sys_up",
+        "down_tree" : "LP_weight_sys_down"
+    }
+  },
+  "options": {
+    "label": [
+        "top control region"
+    ],
+    "treename": "Events", 
+    "weight_branch": "weight_central", 
+    "cutflow": [
+      ""
+    ], 
+    "ratio_range": [
+      0, 
+      3.1
+    ], 
+    "kfactor": 1,
+    "output_label": "", 
+    "intlumi": 1.0, 
+    "ratioplot": true, 
+    "categories": [], 
+    "legend": [
+      ""
+    ]
+  }
+}

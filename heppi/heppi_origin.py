@@ -415,13 +415,13 @@ class instack ():
         _samples_ = []
         for proc,sample in self.samples.items():
             print "SCZ",sample,sample.files
-            # print("sample.tree=", sample.tree)
+            print("sample.tree=", sample.tree)
             chainName = ""
             if sample.tree == "":
                 chainName = str(self.options.treename).format(sampleid = sample.name)
             else:
-                # print "chainName=",sample.tree
-                # print "chainName=",self.options
+                print "chainName=",sample.tree
+                print "chainName=",self.options
                 chainName = str(self.options.treename).format(sampleid = sample.tree)
             chain = ROOT.TChain(chainName)
             _chain_up_list_ = []
@@ -446,7 +446,7 @@ class instack ():
                         _ch_ = {}
                         for level in ['up','down']:
                             # debug print sample.tree
-                            # print "sample.tree=", sample.tree
+                            print "sample.tree=", sample.tree
                             _syst_chain_ = ROOT.TChain(syst.__dict__[level+'_tree'].format(sampleid = sample.tree))
                             for sam in sample.files:
                                 _sam_ = sam
@@ -455,10 +455,10 @@ class instack ():
                             self.systematics[systkey].append_tree(_syst_chain_, level)
                             _ch_[level] = _syst_chain_
                             # debug print systkey
-                            # print "systkey=", systkey
-                            # print "syst=", syst
-                            # print "level=", level
-                            # print "_ch_[level]=", _ch_[level]
+                            print "systkey=", systkey
+                            print "syst=", syst
+                            print "level=", level
+                            print "_ch_[level]=", _ch_[level]
                         self.samples[proc].set_syst_tree(systkey,
                                                          _ch_['up'],
                                                          _ch_['down'])
@@ -476,29 +476,29 @@ class instack ():
                     print "Adding %s for sample %s" % (f + '/' + _tre_,_sam_)
                     chain.Add( f + '/' + _tre_ )
                     logger.debug("[b][%s] = [%s/%s]" % ( sample.name, f , _tre_ ) )
-                # print("sample.label.lower", sample.label.lower())
-                # print("sample.name", sample.name)
+                print("sample.label.lower", sample.label.lower())
+                print("sample.name", sample.name)
                 if 'background' in sample.label.lower()  :
                     for systkey, syst in self.systematics.items() :
 
                         _ch_ = {}
                         for level in ['up','down']:
-                            # print "sample.tree upper", sample.tree
-                            # print "syst.__dict__[level+'_tree']", syst.__dict__[level+'_tree']
-                            # print "syskey", systkey
-                            # print "syst", syst
+                            print "sample.tree upper", sample.tree
+                            print "syst.__dict__[level+'_tree']", syst.__dict__[level+'_tree']
+                            print "syskey", systkey
+                            print "syst", syst
                             _syst_chain_ = ROOT.TChain(syst.__dict__[level+'_tree'])
-                            # print("_syst_chain_ entries=", _syst_chain_.GetEntries())
-                            # print self.sampledir + '/*'+ _sam_ +'*.root'
+                            print("_syst_chain_ entries=", _syst_chain_.GetEntries())
+                            print self.sampledir + '/*'+ _sam_ +'*.root'
                             for f in glob.glob( self.sampledir + '/*'+ _sam_ +'*.root'):
                                 _syst_chain_.Add(f)
                             
                             self.systematics[systkey].append_tree(_syst_chain_, level)
                             _ch_[level] = _syst_chain_
-                            # print "systkey", systkey
+                            print "systkey", systkey
                             # print "syst", syst
                             # print "level", level
-                            # print "_ch_[level]", _ch_[level]
+                            print "_ch_[level]", _ch_[level]
 
                         self.samples[proc].set_syst_tree(systkey,
                                                          _ch_['up'],
@@ -671,10 +671,10 @@ class instack ():
                         dw_diff   = (syst.down_histo.GetBinContent(ibin)- y)/y
                        # debug
 
-                        # print "up_diff",  up_diff
-                        # print "dw_diff",  dw_diff
-                        # print "up_err_sum2", up_err_sum2
-                        # print "dw_err_sum2", dw_err_sum2
+                        print "up_diff",  up_diff
+                        print "dw_diff",  dw_diff
+                        print "up_err_sum2", up_err_sum2
+                        print "dw_err_sum2", dw_err_sum2
                         #FIXME ed changing systematics treatment
                         #if( up_diff > 0 ):
                         #    up_err_sum2  += up_diff*up_diff
@@ -690,15 +690,15 @@ class instack ():
                 dw_error = math.sqrt(dw_err_sum2)
                 band_max   = 1 + up_error
                 band_min   = 1 - dw_error
-                # print('AL DEBUG: for bin number %f \n'%ibin)
+                print('AL DEBUG: for bin number %f \n'%ibin)
 
-                # print('AL DEBUG: max band error is %f \n'%band_max)
-                # print('AL DEBUG: min band error is %f \n'%band_min)
+                print('AL DEBUG: max band error is %f \n'%band_max)
+                print('AL DEBUG: min band error is %f \n'%band_min)
                 if (abs(band_max/band_min) < 10):
                    systPrecision.SetBinContent(ibin, (band_max + band_min)/2.0);
                    systPrecision.SetBinError  (ibin, (band_max - band_min)/2.0);
                 else:
-                #    print('AL hack: make sure ratio plot syst errors are coherent with distribution errors !\n');
+                   print('AL hack: make sure ratio plot syst errors are coherent with distribution errors !\n');
                    if ( (band_max - band_min)/2.0 > ( self.options.ratio_range[1] - self.options.ratio_range[0])/2.0):
                       systPrecision.SetBinContent(ibin, 1.0);
                       systPrecision.SetBinError(ibin,( self.options.ratio_range[1] - self.options.ratio_range[0])/2.0);
@@ -758,22 +758,22 @@ class instack ():
                         dw_err_sum2  += dw_diff*dw_diff
                     else:
                         up_err_sum2  += dw_diff*dw_diff
-                # print ("draw_error_band")
-                # print("sample.name",)
-                # print ("up_err_sum2", up_err_sum2)
-                # print ("dw_err_sum2", dw_err_sum2)
+                print ("draw_error_band")
+                print("sample.name",)
+                print ("up_err_sum2", up_err_sum2)
+                print ("dw_err_sum2", dw_err_sum2)
                 up_error = math.sqrt(up_err_sum2)
                 dw_error = math.sqrt(dw_err_sum2)
-                # print("y", y)
-                # print("up_error", up_error)
-                # print("dw_error", dw_error)
+                print("y", y)
+                print("up_error", up_error)
+                print("dw_error", dw_error)
                 band_max   = y + up_error
                 band_min   = y - dw_error
 
-                # print(" band_max ", band_max)
-                # print(" band_min ", band_min)
-                # print("final result", (band_max + band_min)/2.0)
-                # print("final result", (band_max - band_min)/2.0)
+                print(" band_max ", band_max)
+                print(" band_min ", band_min)
+                print("final result", (band_max + band_min)/2.0)
+                print("final result", (band_max - band_min)/2.0)
                 systPrecision.SetBinContent(ibin, (band_max + band_min)/2.0);
                 systPrecision.SetBinError  (ibin, (band_max - band_min)/2.0);
     
@@ -862,8 +862,8 @@ class instack ():
 
         if log: yMin = min(histData.GetMinimum(),histMC.GetMinimum())
         else  : yMin = 0
-        if log: yMax = 10000 * yMax
-        else  : yMax = 1.2*yMax
+        if log: yMax = yMax
+        else  : yMax = 1.1*yMax
 
         try:
             histData.GetYaxis().SetRangeUser(0,1.2*yMax)
@@ -1163,8 +1163,8 @@ class instack ():
                 _ymin_ = 1e-4 if _ymin_ <= 0 else _ymin_
                 _ymax_ = 75 * hstack.GetMaximum()
             else:
-                _ymin_ = (0.01 - 0.003) if _ymin_ <= 0 else _ymin_
-                _ymax_ = hstack.GetMaximum()*100
+                _ymin_ = 0.1
+                _ymax_ = 1000
 
             _htmp_.GetYaxis().SetRangeUser(_ymin_,_ymax_)
             ROOT.gPad.SetLogy()
@@ -1187,12 +1187,7 @@ class instack ():
         print hstack.GetStack().Last()
         print 'ED DEBUG systematics'
         print self.systematics
-        print 'ED DEBUG self.systematics.keys()'
-        print self.systematics.keys()
-        print 'ED DEBUG self.systematics.keys()[0]'
-        print self.systematics.keys()[0]
         (herrstat, herrsyst) = self.draw_error_band(hstack.GetStack().Last(),self.systematics)
-        print 'ED DEBUG herrstat'
         herrstat.Draw('E2,same')
         # debug herrstat entries
         print 'ED DEBUG herrstat.GetEntries()'
@@ -1222,7 +1217,7 @@ class instack ():
         herrsyst.SetBinContent(0,0)
         herrsyst.SetBinContent(1,20)
         # herrsyst color to red for debug
-        # herrsyst.SetFillColor(ROOT.kRed)
+        herrsyst.SetFillColor(ROOT.kRed)
         if len(self.systematics)!=0:herrsyst.Draw('E2,same')
         hdata = None
         for h in variable.root_histos:
@@ -1263,6 +1258,7 @@ class instack ():
         # utils.draw_cms_headlabel( label_right='#sqrt{s} = 13 TeV, L = 16.8 fb^{-1}' ) #AL hard coded lumi postVFP
         utils.draw_cms_headlabel( label_right='#sqrt{s} = 13 TeV, L = 41.5 fb^{-1}' ) #AL hard coded lumi
         # utils.draw_cms_headlabel( label_right='#sqrt{s} = 13 TeV, L = 59.8 fb^{-1}' ) #AL hard coded lumi
+        # utils.draw_cms_headlabel( label_right='#sqrt{s} = 13 TeV, L = 59.8 fb^{-1}' ) #AL hard coded lumi
         #
         c.cd()
         if self.options.ratioplot :
@@ -1278,17 +1274,17 @@ class instack ():
             systHist.GetYaxis().SetTitle('Data/MC')
             systHist.GetYaxis().CenterTitle(True)
             # print each bin content
-            # for i in range(1,errorHist.GetNbinsX()+1):
-            #     print 'errorHist bin %d: %f' % (i,errorHist.GetBinContent(i))
-            # # print each bin error
-            # for i in range(1,errorHist.GetNbinsX()+1):
-            #     print 'errorHist bin error %d: %f' % (i,errorHist.GetBinError(i))
+            for i in range(1,errorHist.GetNbinsX()+1):
+                print 'errorHist bin %d: %f' % (i,errorHist.GetBinContent(i))
             # print each bin error
-            # for i in range(1,systHist.GetNbinsX()+1):
-            #     print 'systHist bin %d: %f' % (i,systHist.GetBinContent(i))
+            for i in range(1,errorHist.GetNbinsX()+1):
+                print 'errorHist bin error %d: %f' % (i,errorHist.GetBinError(i))
             # print each bin error
-            # for i in range(1,systHist.GetNbinsX()+1):
-            #     print 'systHist bin error %d: %f' % (i,systHist.GetBinError(i))
+            for i in range(1,systHist.GetNbinsX()+1):
+                print 'systHist bin %d: %f' % (i,systHist.GetBinContent(i))
+            # print each bin error
+            for i in range(1,systHist.GetNbinsX()+1):
+                print 'systHist bin error %d: %f' % (i,systHist.GetBinError(i))
             self.customizeHisto(errorHist)
             if settings.ratio_plot_grid :
                 print('checkratio1')

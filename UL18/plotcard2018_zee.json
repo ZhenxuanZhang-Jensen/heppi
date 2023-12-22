@@ -8,22 +8,6 @@
       "hist": "(100,0.0,2.2)", 
       "norm": false
     }, 
-    "Tran_DiphotonMVA_self": {
-      "blind": "", 
-      "cut": "", 
-      "log": false, 
-      "title": "Transformed retrained BDT", 
-      "hist": "(100,0,1.0)", 
-      "norm": false
-    }, 
-    "DiphotonMVA_self": {
-      "blind": "", 
-      "cut": "", 
-      "log": false, 
-      "title": "retrained BDT", 
-      "hist": "(100,-1.0,1.0)", 
-      "norm": false
-    }, 
     "leadphi": {
       "blind": "", 
       "cut": "", 
@@ -115,9 +99,9 @@
     "sigmarv": {
       "blind": "", 
       "cut": "", 
-      "log": false, 
+      "log": true, 
       "title": "sigmarv", 
-      "hist": "(100,0.0,0.05)", 
+      "hist": "(100,0.0,0.5)", 
       "norm": false
     }, 
     "subleadphi": {
@@ -219,9 +203,9 @@
     "sigmawv": {
       "blind": "", 
       "cut": "", 
-      "log": false, 
+      "log": true, 
       "title": "sigmawv", 
-      "hist": "(100,0.0,0.05)", 
+      "hist": "(100,0.0,0.5)", 
       "norm": false
     }, 
     "subleadmva": {
@@ -291,16 +275,16 @@
   }, 
   "processes": {
     "Data": {
-      "files": "DataUL2018_ZeeTree_BDT_tran_ptWgt_summer20", 
-      "cut": "((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0) &&((leadptom*CMS_hgg_mass) >=40))", 
+      "files": "DataUL2018_ZeeTree_SingleEleHLT", 
+      "cut": "(CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0", 
       "title": "Data", 
-      "color": 1, 
+      "color": 138, 
       "tree": "Data", 
       "label": "Data"
         },
     "Z -> ee": {
-      "files": "DYMC_Summer20UL2018_ZeeTree_Syst_BDT_tran_ptWgt_no_masswindow_no_sigmrv_all", 
-      "cut": "PTWeight*((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0) &&( (leadptom*CMS_hgg_mass) >=40))", 
+      "files": "DYMC2018_ZeeTree", 
+      "cut": "(CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0", 
       "title": "DYToLL", 
       "color": 122, 
       "tree": "DYToLL", 
@@ -309,34 +293,27 @@
   }, 
   "systematics": {
     "SOE": {
-        "up_tree" : "DYToLL_13TeV_UntaggedTag_SigmaEOverEShiftUp01sigma",
-        "down_tree" : "DYToLL_13TeV_UntaggedTag_SigmaEOverEShiftDown01sigma"
-     },
-     "MVA":{
-      "up_tree"   : "DYToLL_13TeV_UntaggedTag_MvaShiftUp01sigma",
-      "down_tree" : "DYToLL_13TeV_UntaggedTag_MvaShiftDown01sigma"
+        "up_tree"   : "tagsDumper/trees/Data_13TeV_UntaggedTag",
+        "down_tree" : "tagsDumper/trees/Data_13TeV_UntaggedTag"
      }
-  },
+},
+
   "options": {
     "label": [
-      "Zee", "80 < m_{ee} < 100","Diphoton preselection"
+        "Zee"
     ],
-    "treename": "{sampleid}_13TeV_UntaggedTag", 
-    "weight_branch": "weight", 
-    "cutflow": [
-      ""
-    ], 
-    "ratio_range": [
-      0, 
-      2
-    ], 
-    "kfactor": 62.1950011,
-    "output_label": "", 
-    "intlumi": 1.0, 
-    "ratioplot": true, 
-    "categories": [], 
-    "legend": [
-      ""
-    ]
-  }
+    "treename": "tagsDumper/trees/{sampleid}_13TeV_UntaggedTag",
+    "intlumi": 1.00,
+    "kfactor": 1.00,
+    "ratioplot" : false,
+    "categories": [
+      {
+         "name":"inclusive" ,
+         "cut":"",
+         "label":""
+      }
+ ],
+ "weight_branch":"weightt"
+
+}
 }

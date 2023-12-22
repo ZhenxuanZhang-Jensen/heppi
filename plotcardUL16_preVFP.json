@@ -5,23 +5,15 @@
       "cut": "", 
       "log": true, 
       "title": "weight", 
-      "hist": "(100,0.0,2.2)", 
+      "hist": "(100,-0.4,0.2)", 
       "norm": false
     }, 
-    "Tran_DiphotonMVA_self": {
+    "weight_LooseMvaSF": {
       "blind": "", 
       "cut": "", 
-      "log": false, 
-      "title": "Transformed retrained BDT", 
-      "hist": "(100,0,1.0)", 
-      "norm": false
-    }, 
-    "DiphotonMVA_self": {
-      "blind": "", 
-      "cut": "", 
-      "log": false, 
-      "title": "retrained BDT", 
-      "hist": "(100,-1.0,1.0)", 
+      "log": true, 
+      "title": "weight_LooseMvaSF", 
+      "hist": "(100,1.0,1.0)", 
       "norm": false
     }, 
     "leadphi": {
@@ -35,8 +27,8 @@
     "leadeta": {
       "blind": "", 
       "cut": "", 
-      "log": true, 
-      "title": "leadeta", 
+      "log": false, 
+      "title": "\\eta^{1}", 
       "hist": "(100,-3.0,3.0)", 
       "norm": false
     }, 
@@ -45,7 +37,15 @@
       "cut": "", 
       "log": true, 
       "title": "centralObjectWeight", 
-      "hist": "(100,0.0,2.2)", 
+      "hist": "(100,0.4,1.0)", 
+      "norm": false
+    }, 
+    "weight_TriggerWeight": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "weight_TriggerWeight", 
+      "hist": "(100,0.4,1.1)", 
       "norm": false
     }, 
     "event": {
@@ -53,23 +53,39 @@
       "cut": "", 
       "log": true, 
       "title": "event", 
-      "hist": "(2,0.0,8589934592.0)", 
+      "hist": "(101,0.0,565600000.0)", 
+      "norm": false
+    }, 
+    "weight_PreselSF": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "weight_PreselSF", 
+      "hist": "(100,1.0,1.0)", 
       "norm": false
     }, 
     "subleadptom": {
       "blind": "", 
       "cut": "", 
-      "log": true, 
-      "title": "subleadptom", 
-      "hist": "(100,0.0,3.4)", 
+      "log": false, 
+      "title": "P_{T}^{(2)}/M_{\\gamma\\gamma}", 
+      "hist": "(100,0.0,1.0)", 
       "norm": false
     }, 
     "vtxprob": {
       "blind": "", 
       "cut": "", 
       "log": true, 
-      "title": "vtxprob", 
-      "hist": "(100,0.1,1.1)", 
+      "title": "P_{vertex}", 
+      "hist": "(100,0.0,1.0)", 
+      "norm": false
+    }, 
+    "weight_SigmaEOverESmearing": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "weight_SigmaEOverESmearing", 
+      "hist": "(100,0.0,2.2)", 
       "norm": false
     }, 
     "leadR9": {
@@ -77,7 +93,15 @@
       "cut": "", 
       "log": true, 
       "title": "leadR9", 
-      "hist": "(100,0.4,13.3)", 
+      "hist": "(100,0.2,3.5)", 
+      "norm": false
+    }, 
+    "npu": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "npu", 
+      "hist": "(100,0.0,81.0)", 
       "norm": false
     }, 
     "pt": {
@@ -85,7 +109,23 @@
       "cut": "", 
       "log": true, 
       "title": "pt", 
-      "hist": "(100,0.0,2040.0)", 
+      "hist": "(100,0.0,500)", 
+      "norm": false
+    }, 
+    "weight_FracRVWeight": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "weight_FracRVWeight", 
+      "hist": "(100,0.0,2.2)", 
+      "norm": false
+    }, 
+    "PTWeight": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "PTWeight", 
+      "hist": "(100,0.0,1.4)", 
       "norm": false
     }, 
     "subleadSigEOverE": {
@@ -101,7 +141,7 @@
       "cut": "", 
       "log": true, 
       "title": "puweight", 
-      "hist": "(100,0.0,2.2)", 
+      "hist": "(100,0.2,5.1)", 
       "norm": false
     }, 
     "candidate_id": {
@@ -116,8 +156,8 @@
       "blind": "", 
       "cut": "", 
       "log": false, 
-      "title": "sigmarv", 
-      "hist": "(100,0.0,0.05)", 
+      "title": "\\sigma_{rv}", 
+      "hist": "(100,0.0,0.1)", 
       "norm": false
     }, 
     "subleadphi": {
@@ -133,7 +173,7 @@
       "cut": "", 
       "log": true, 
       "title": "nvtx", 
-      "hist": "(147,0.0,294.0)", 
+      "hist": "(113,0.0,113.0)", 
       "norm": false
     }, 
     "sublead_genMatchType": {
@@ -141,15 +181,15 @@
       "cut": "", 
       "log": true, 
       "title": "sublead_genMatchType", 
-      "hist": "(100,-1.2,1.2)", 
+      "hist": "(100,0.0,2.2)", 
       "norm": false
     }, 
     "leadptom": {
       "blind": "", 
       "cut": "", 
-      "log": true, 
-      "title": "leadptom", 
-      "hist": "(100,0.0,20.8)", 
+      "log": false, 
+      "title": "P_{T}^{(1)}/M_{\\gamma\\gamma}", 
+      "hist": "(100,0.0,1.0)", 
       "norm": false
     }, 
     "run": {
@@ -157,7 +197,7 @@
       "cut": "", 
       "log": true, 
       "title": "run", 
-      "hist": "(102,315161.0,330665.0)", 
+      "hist": "(3,0.0,3.0)", 
       "norm": false
     }, 
     "lead_genMatchType": {
@@ -165,7 +205,15 @@
       "cut": "", 
       "log": true, 
       "title": "lead_genMatchType", 
-      "hist": "(100,-1.2,1.2)", 
+      "hist": "(100,0.0,2.2)", 
+      "norm": false
+    }, 
+    "weight_electronVetoSF": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "weight_electronVetoSF", 
+      "hist": "(100,0.9,1.0)", 
       "norm": false
     }, 
     "rho": {
@@ -173,7 +221,7 @@
       "cut": "", 
       "log": true, 
       "title": "rho", 
-      "hist": "(100,0.0,71.0)", 
+      "hist": "(100,0.0,72.0)", 
       "norm": false
     }, 
     "lumi": {
@@ -181,15 +229,15 @@
       "cut": "", 
       "log": true, 
       "title": "lumi", 
-      "hist": "(101,0.0,4646.0)", 
+      "hist": "(101,0.0,2121000.0)", 
       "norm": false
     }, 
-    "npu": {
+    "NNLOPSweight": {
       "blind": "", 
       "cut": "", 
       "log": true, 
-      "title": "npu", 
-      "hist": "(100,-1.2,1.2)", 
+      "title": "NNLOPSweight", 
+      "hist": "(100,0.0,2.2)", 
       "norm": false
     }, 
     "sigmarvDecorr": {
@@ -204,38 +252,54 @@
       "blind": "", 
       "cut": "", 
       "log": true, 
-      "title": "CosPhi", 
-      "hist": "(100,-1.2,1.2)", 
+      "title": "Cos(\\Delta \\phi)", 
+      "hist": "(100,-1.0,1.0)", 
       "norm": false
     }, 
     "leadmva": {
       "blind": "", 
       "cut": "", 
-      "log": true, 
-      "title": "leadmva", 
-      "hist": "(100,-1.1,1.2)", 
+      "log": false, 
+      "title": "lead PhotonIDmva", 
+      "hist": "(100,-1.0,1.0)", 
+      "norm": false
+    }, 
+    "DiphotonMVA_self": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "retrained BDT", 
+      "hist": "(100,-1.2,1.2)", 
+      "norm": false
+    }, 
+    "Tran_DiphotonMVA_self": {
+      "blind": "", 
+      "cut": "", 
+      "log": false, 
+      "title": "Transformed retrained BDT", 
+      "hist": "(100,0,1.0)", 
       "norm": false
     }, 
     "sigmawv": {
       "blind": "", 
       "cut": "", 
       "log": false, 
-      "title": "sigmawv", 
-      "hist": "(100,0.0,0.05)", 
+      "title": "\\sigma_{wv}", 
+      "hist": "(100,0.0,0.1)", 
       "norm": false
     }, 
     "subleadmva": {
       "blind": "", 
       "cut": "", 
-      "log": true, 
-      "title": "subleadmva", 
-      "hist": "(100,-1.1,1.2)", 
+      "log": false, 
+      "title": "sublead PhotonIDmva", 
+      "hist": "(100,-1.0,1.0)", 
       "norm": false
     }, 
     "diphoMVA": {
       "blind": "", 
       "cut": "", 
-      "log": true, 
+      "log": false, 
       "title": "diphoMVA", 
       "hist": "(100,-1.2,1.2)", 
       "norm": false
@@ -253,7 +317,7 @@
       "cut": "", 
       "log": true, 
       "title": "processIndex", 
-      "hist": "(4,-2.0,2.0)", 
+      "hist": "(4,18.0,22.0)", 
       "norm": false
     }, 
     "dZ": {
@@ -261,7 +325,7 @@
       "cut": "", 
       "log": true, 
       "title": "dZ", 
-      "hist": "(100,-100.2,-97.8)", 
+      "hist": "(100,-46.0,162.0)", 
       "norm": false
     }, 
     "subleadR9": {
@@ -269,14 +333,22 @@
       "cut": "", 
       "log": true, 
       "title": "subleadR9", 
-      "hist": "(100,0.2,34.1)", 
+      "hist": "(100,0.4,12.2)", 
+      "norm": false
+    }, 
+    "weight_FracRVNvtxWeight": {
+      "blind": "", 
+      "cut": "", 
+      "log": true, 
+      "title": "weight_FracRVNvtxWeight", 
+      "hist": "(100,0.0,2.2)", 
       "norm": false
     }, 
     "subleadeta": {
       "blind": "", 
       "cut": "", 
-      "log": true, 
-      "title": "subleadeta", 
+      "log": false, 
+      "title": "\\eta^{2}", 
       "hist": "(100,-3.0,3.0)", 
       "norm": false
     }, 
@@ -285,22 +357,23 @@
       "cut": "", 
       "log": false, 
       "title": "CMS_hgg_mass", 
-      "hist": "(100,55.0,125.0)", 
+      "hist": "(100,80.0,100.0)", 
       "norm": false
     }
   }, 
   "processes": {
     "Data": {
-      "files": "DataUL2018_ZeeTree_BDT_tran_ptWgt_summer20", 
-      "cut": "((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0) &&((leadptom*CMS_hgg_mass) >=40))", 
+      "files": "SingleEleData_preVFP_Zee_BDT_tran_UL16_preVFP_all_samples_mass_window", 
+      "cut": "((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0) && ((CMS_hgg_mass * leadptom)>35))", 
       "title": "Data", 
       "color": 1, 
       "tree": "Data", 
-      "label": "Data"
-        },
+      "label": "Data", 
+      "order": 0
+    },
     "Z -> ee": {
-      "files": "DYMC_Summer20UL2018_ZeeTree_Syst_BDT_tran_ptWgt_no_masswindow_no_sigmrv_all", 
-      "cut": "PTWeight*((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0) &&( (leadptom*CMS_hgg_mass) >=40))", 
+      "files": "DYMC_2016_PreVFP_ptWgt_all_masswindow_ptWgt_all", 
+      "cut": "PTWeight * ((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0) && ((CMS_hgg_mass * leadptom)>35) )", 
       "title": "DYToLL", 
       "color": 122, 
       "tree": "DYToLL", 
@@ -330,9 +403,9 @@
       0, 
       2
     ], 
-    "kfactor": 62.1950011,
+    "kfactor": 37.99552, 
     "output_label": "", 
-    "intlumi": 1.0, 
+    "intlumi": 1, 
     "ratioplot": true, 
     "categories": [], 
     "legend": [
