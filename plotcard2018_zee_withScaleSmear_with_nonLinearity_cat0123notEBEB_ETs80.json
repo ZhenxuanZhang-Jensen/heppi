@@ -363,8 +363,8 @@
   }, 
   "processes": {
     "Data": {
-      "files": "DataUL2017_ZeeTree_ptWgt_BDT_tran_ptWgt_summer20", 
-      "cut": "((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0) &&((leadptom*CMS_hgg_mass) >=40)) && (Tran_DiphotonMVA_self>0) && (abs(leadeta)<2.1) && (abs(subleadeta)<2.1)", 
+      "files": "DataUL2018_ZeeTree_BDT_tran_ptWgt_summer20", 
+      "cut": "((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0) &&((leadptom*CMS_hgg_mass) <80))&&((subleadptom*CMS_hgg_mass) <80) && (Tran_DiphotonMVA_self>0.5946) && (Tran_DiphotonMVA_self<=1) && ((abs(leadeta)>1.5) | (abs(subleadeta)>1.5)) && ((abs(leadeta)<2.1) && (abs(subleadeta)<2.1))", 
       "title": "Data", 
       "color": 1, 
       "tree": "Data", 
@@ -372,8 +372,8 @@
       "order": 0
     },
     "Z -> ee": {
-      "files": "DYMC2017_MiniTree_Syst_ptWgt_BDT_all", 
-      "cut": "PTWeight*((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0) &&( (leadptom*CMS_hgg_mass) >=40)) && (Tran_DiphotonMVA_self>0) && (abs(leadeta)<2.1) && (abs(subleadeta)<2.1)", 
+      "files": "output_dense", 
+      "cut": "((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0) &&((leadptom*CMS_hgg_mass) <80))&&((subleadptom*CMS_hgg_mass) <80) && (Tran_DiphotonMVA_self>0.5946) && (Tran_DiphotonMVA_self<=1) && ((abs(leadeta)>1.5) | (abs(subleadeta)>1.5)) && ((abs(leadeta)<2.1) && (abs(subleadeta)<2.1))",
       "title": "DYToLL", 
       "color": 122, 
       "tree": "DYToLL", 
@@ -389,11 +389,64 @@
      "MVA":{
       "up_tree"   : "DYToLL_13TeV_UntaggedTag_MvaShiftUp01sigma",
       "down_tree" : "DYToLL_13TeV_UntaggedTag_MvaShiftDown01sigma"
-     }
+     },
+     "MCScaleHighR9EB":{
+      "up_tree"   : "DYToLL_13TeV_UntaggedTag_MCScaleHighR9EBUp01sigma",
+      "down_tree" : "DYToLL_13TeV_UntaggedTag_MCScaleHighR9EBDown01sigma"
+     },
+      "MCScaleHighR9EE":{
+        "up_tree"   : "DYToLL_13TeV_UntaggedTag_MCScaleHighR9EEUp01sigma",
+        "down_tree" : "DYToLL_13TeV_UntaggedTag_MCScaleHighR9EEDown01sigma"
+      },
+      "MCScaleLowR9EB":{
+        "up_tree"   : "DYToLL_13TeV_UntaggedTag_MCScaleLowR9EBUp01sigma",
+        "down_tree" : "DYToLL_13TeV_UntaggedTag_MCScaleLowR9EBDown01sigma"
+      },
+      "MCScaleLowR9EE":{
+        "up_tree"   : "DYToLL_13TeV_UntaggedTag_MCScaleLowR9EEUp01sigma",
+        "down_tree" : "DYToLL_13TeV_UntaggedTag_MCScaleLowR9EEDown01sigma"
+      },
+      "MCSmearHighR9EBPhi":{
+        "up_tree"   : "DYToLL_13TeV_UntaggedTag_MCSmearHighR9EBPhiUp01sigma",
+        "down_tree" : "DYToLL_13TeV_UntaggedTag_MCSmearHighR9EBPhiDown01sigma"
+      },
+      "MCSmearHighR9EBRho":{
+        "up_tree"   : "DYToLL_13TeV_UntaggedTag_MCSmearHighR9EBRhoUp01sigma",
+        "down_tree" : "DYToLL_13TeV_UntaggedTag_MCSmearHighR9EBRhoDown01sigma"
+      },
+      "MCSmearHighR9EEPhi":{
+        "up_tree"   : "DYToLL_13TeV_UntaggedTag_MCSmearHighR9EEPhiUp01sigma",
+        "down_tree" : "DYToLL_13TeV_UntaggedTag_MCSmearHighR9EEPhiDown01sigma"
+      },
+      "MCSmearHighR9EERho":{
+        "up_tree"   : "DYToLL_13TeV_UntaggedTag_MCSmearHighR9EERhoUp01sigma",
+        "down_tree" : "DYToLL_13TeV_UntaggedTag_MCSmearHighR9EERhoDown01sigma"
+      },
+      "MCSmearLowR9EBPhi":{
+        "up_tree"   : "DYToLL_13TeV_UntaggedTag_MCSmearLowR9EBPhiUp01sigma",
+        "down_tree" : "DYToLL_13TeV_UntaggedTag_MCSmearLowR9EBPhiDown01sigma"
+      },
+      "MCSmearLowR9EBRho":{
+        "up_tree"   : "DYToLL_13TeV_UntaggedTag_MCSmearLowR9EBRhoUp01sigma",
+        "down_tree" : "DYToLL_13TeV_UntaggedTag_MCSmearLowR9EBRhoDown01sigma"
+      },
+      "MCSmearLowR9EEPhi":{
+        "up_tree"   : "DYToLL_13TeV_UntaggedTag_MCSmearLowR9EEPhiUp01sigma",
+        "down_tree" : "DYToLL_13TeV_UntaggedTag_MCSmearLowR9EEPhiDown01sigma"
+      },
+      "MCSmearLowR9EERho":{
+        "up_tree"   : "DYToLL_13TeV_UntaggedTag_MCSmearLowR9EERhoUp01sigma",
+        "down_tree" : "DYToLL_13TeV_UntaggedTag_MCSmearLowR9EERhoDown01sigma"
+      },
+      "MCScaleNonLinearity":{
+        "up_tree"   : "DYToLL_13TeV_UntaggedTag_MCScaleNonLinearityUp",
+        "down_tree" : "DYToLL_13TeV_UntaggedTag_MCScaleNonLinearityDown"
+      }
+
   },
   "options": {
     "label": [
-      "Zee", "80 < m_{ee} < 100","Diphoton preselection"
+      "notEBEB", "80 < m_{ee} < 100","Diphoton preselection"
     ],
     "treename": "{sampleid}_13TeV_UntaggedTag", 
     "weight_branch": "weight", 
@@ -401,10 +454,10 @@
       ""
     ], 
     "ratio_range": [
-      0.8, 
-      1.2
+      0, 
+      2
     ], 
-    "kfactor": 43.29745627097,
+    "kfactor": 62.1950011,
     "output_label": "", 
     "intlumi": 1.0, 
     "ratioplot": true, 
@@ -414,3 +467,5 @@
     ]
   }
 }
+
+

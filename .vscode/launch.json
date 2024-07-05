@@ -1,0 +1,16 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File with Arguments",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "./heppi-draw",
+            "console": "integratedTerminal",
+            "args": "-p plotcard2017_zee_cat2_EBEB.json -o \"/eos/cms/store/group/phys_higgs/cmshgg/zhenxuan/Hgg_mass/MiniTree/UL2017/Summer20/\" -s \"/eos/cms/store/group/phys_higgs/cmshgg/zhenxuan/Hgg_mass/MiniTree/UL2017/Summer20/\" -t {sampleid}_13TeV_UntaggedTag --label zee_EBEB_cat2 -v CMS_hgg_mass"
+        }
+    ]
+}

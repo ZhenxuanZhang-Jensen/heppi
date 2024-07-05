@@ -377,7 +377,8 @@
       "title": "DYToLL", 
       "color": 122, 
       "tree": "DYToLL", 
-      "label": "background"
+      "label": "background",
+      "order": 1
         }
   }, 
   "systematics": {
@@ -400,8 +401,8 @@
       ""
     ], 
     "ratio_range": [
-      0, 
-      2
+      0.5, 
+      1.5
     ], 
     "kfactor": 0.0009406319354788643, 
     "output_label": "", 

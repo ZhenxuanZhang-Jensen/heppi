@@ -1140,7 +1140,7 @@ class instack ():
         if len(self.systematics)>0:
             variable.root_legend.AddEntry(herrsyst, "Stat #oplus Syst", "f" )
         else:
-            variable.root_legend.AddEntry(herrstat, "Stat Uncert", "f" )
+            variable.root_legend.AddEntry(herrstat, "Stat wert", "f" )
 
         # cosmetics
         utils.draw_cut_line(_htmp_,variable,'x')

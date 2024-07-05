@@ -291,7 +291,7 @@
     "CMS_hgg_mass": {
       "blind": "", 
       "cut": "", 
-      "log": true, 
+      "log": false, 
       "title": "CMS_hgg_mass", 
       "hist": "(100,80.0,100.0)", 
       "norm": false
@@ -300,20 +300,21 @@
   "processes": {
     "Data": {
       "files": "SingleEleData_preVFP_Zee_BDT_tran_UL16_preVFP_all_samples_mass_window", 
-      "cut": "((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0))", 
+      "cut": "((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0)) && (abs(leadeta)<2.1) && (abs(subleadeta)<2.1)", 
       "title": "Data", 
       "color": 1, 
       "tree": "Data_13TeV_UntaggedTag", 
       "label": "Data", 
-      "order": 0
+      "order": 1
     },
     "Z -> ee": {
       "files": "DYMC_2016_PreVFP_Summer20UL_Zee_Syst_BDT_Tran_no_masswindow_msweight_no_sigmarv_all", 
-      "cut": "PTWeight*((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0) )", 
+      "cut": "PTWeight*((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0) ) && (abs(leadeta)<2.1) && (abs(subleadeta)<2.1)", 
       "title": "DYToLL", 
       "color": 122, 
       "tree": "DYToLL_13TeV_UntaggedTag", 
-      "label": "background"
+      "label": "background",
+      "order": 0
         }
   }, 
   "systematics": {
@@ -336,10 +337,10 @@
       ""
     ], 
     "ratio_range": [
-      0.5, 
-      1.5
+      0.8, 
+      1.2
     ], 
-    "kfactor": 37.99552,
+    "kfactor": 19.2842215374,
     "output_label": "", 
     "intlumi": 1, 
     "ratioplot": true, 

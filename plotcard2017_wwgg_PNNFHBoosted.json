@@ -277,7 +277,7 @@
       "cut": "", 
       "log": false, 
       "title": "Transformed retrained BDT", 
-      "hist": "(102,-0.01,1.01)", 
+      "hist": "(100,0.0,1.0)", 
       "norm": false
     }, 
     "sigmawv": {
@@ -363,22 +363,21 @@
   }, 
   "processes": {
     "Data": {
-      "files": "DataUL2017_ZeeTree_ptWgt_BDT_tran_ptWgt_summer20", 
-      "cut": "((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0) &&((leadptom*CMS_hgg_mass) >=40)) && (Tran_DiphotonMVA_self>0) && (abs(leadeta)<2.1) && (abs(subleadeta)<2.1)", 
+      "files": "data_2017_PNNscore", 
+      "cut": "", 
       "title": "Data", 
       "color": 1, 
       "tree": "Data", 
       "label": "Data", 
       "order": 0
     },
-    "Z -> ee": {
-      "files": "DYMC2017_MiniTree_Syst_ptWgt_BDT_all", 
-      "cut": "PTWeight*((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0) &&( (leadptom*CMS_hgg_mass) >=40)) && (Tran_DiphotonMVA_self>0) && (abs(leadeta)<2.1) && (abs(subleadeta)<2.1)", 
+    "WWgg": {
+      "files": "dd_2017_PNNscore", 
+      "cut": "PTWeight*((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0) &&( (leadptom*CMS_hgg_mass) >=40))", 
       "title": "DYToLL", 
       "color": 122, 
       "tree": "DYToLL", 
-      "label": "background",
-      "order": 1
+      "label": "background"
         }
   }, 
   "systematics": {
@@ -401,8 +400,8 @@
       ""
     ], 
     "ratio_range": [
-      0.8, 
-      1.2
+      0.5, 
+      1.5
     ], 
     "kfactor": 43.29745627097,
     "output_label": "", 

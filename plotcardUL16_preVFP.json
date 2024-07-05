@@ -364,20 +364,21 @@
   "processes": {
     "Data": {
       "files": "SingleEleData_preVFP_Zee_BDT_tran_UL16_preVFP_all_samples_mass_window", 
-      "cut": "((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0) && ((CMS_hgg_mass * leadptom)>35))", 
+      "cut": "((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0) && ((CMS_hgg_mass * leadptom)>35) && (abs(leadeta)<2.1) && (abs(subleadeta)<2.1) )", 
       "title": "Data", 
       "color": 1, 
       "tree": "Data", 
       "label": "Data", 
-      "order": 0
+      "order": 1
     },
     "Z -> ee": {
       "files": "DYMC_2016_PreVFP_ptWgt_all_masswindow_ptWgt_all", 
-      "cut": "PTWeight * ((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0) && ((CMS_hgg_mass * leadptom)>35) )", 
+      "cut": "PTWeight * ((CMS_hgg_mass>80.0 && CMS_hgg_mass<100.0) && ((CMS_hgg_mass * leadptom)>35) && (abs(leadeta)<2.1) && (abs(subleadeta)<2.1) )", 
       "title": "DYToLL", 
       "color": 122, 
       "tree": "DYToLL", 
-      "label": "background"
+      "label": "background",
+      "order": 0
         }
   }, 
   "systematics": {
@@ -400,8 +401,8 @@
       ""
     ], 
     "ratio_range": [
-      0, 
-      2
+      0.8, 
+      1.2
     ], 
     "kfactor": 37.99552, 
     "output_label": "", 

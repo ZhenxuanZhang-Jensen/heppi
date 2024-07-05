@@ -390,7 +390,11 @@ class instack ():
                 for proc in _config_[key]:
                     p = sample(proc,_config_[key][proc])
                     _samples_[p.name] = p
+
+                # self.samples = OrderedDict(sorted(_samples_.items(), key=lambda x: x[1].order, reverse=True))
                 self.samples = OrderedDict(sorted(_samples_.items(), key=lambda x: x[1].order ))
+                print('_samples_.items()', _samples_.items())
+                print('self.samples', self.samples)
             if 'options' in key.lower():
                 logger.info(' ----------------------------- ')
                 self.options = options(_config_[key])
@@ -663,18 +667,22 @@ class instack ():
                 dw_err_sum2 = 0
                 if( y > 0 ):
                     # debug
-                    # print "bin ",ibin," y ",y," stat ",stat
+                    print "bin ",ibin," y ",y," stat ",stat
                     up_err_sum2 = (stat/y)*(stat/y)
                     dw_err_sum2 = (stat/y)*(stat/y)
                     for key,syst in systematics.items():
                         up_diff   = (syst.up_histo.GetBinContent(ibin)- y)/y
                         dw_diff   = (syst.down_histo.GetBinContent(ibin)- y)/y
+                        print "syst.up_histo.GetBinContent(ibin)",  syst.up_histo.GetBinContent(ibin)
+                        print("draw_error_band y", y)
+                        print "syst.down_histo.GetBinContent(ibin)",  syst.down_histo.GetBinContent(ibin)
+                    # peintsyst.up_histo.GetBinContent(ibin)- y)/y
+                    # dw_diff   = (syst.down_histo.GetBinContent(ibin)- y)/y
                        # debug
-
-                        # print "up_diff",  up_diff
-                        # print "dw_diff",  dw_diff
-                        # print "up_err_sum2", up_err_sum2
-                        # print "dw_err_sum2", dw_err_sum2
+                        print "up_diff",  up_diff
+                        print "dw_diff",  dw_diff
+                        print "up_err_sum2", up_err_sum2
+                        print "dw_err_sum2", dw_err_sum2
                         #FIXME ed changing systematics treatment
                         #if( up_diff > 0 ):
                         #    up_err_sum2  += up_diff*up_diff
@@ -690,13 +698,13 @@ class instack ():
                 dw_error = math.sqrt(dw_err_sum2)
                 band_max   = 1 + up_error
                 band_min   = 1 - dw_error
-                # print('AL DEBUG: for bin number %f \n'%ibin)
-
-                # print('AL DEBUG: max band error is %f \n'%band_max)
-                # print('AL DEBUG: min band error is %f \n'%band_min)
+                print('AL DEBUG: for bin number %f \n'%ibin)
+                print('AL DEBUG: max band error is %f \n'%band_max)
+                print('AL DEBUG: min band error is %f \n'%band_min)
+                print('abs(band_max/band_min)', abs(band_max/band_min))
                 if (abs(band_max/band_min) < 10):
                    systPrecision.SetBinContent(ibin, (band_max + band_min)/2.0);
-                   systPrecision.SetBinError  (ibin, (band_max - band_min)/2.0);
+                   systPrecision.SetBinError(ibin, (band_max - band_min)/2.0);
                 else:
                 #    print('AL hack: make sure ratio plot syst errors are coherent with distribution errors !\n');
                    if ( (band_max - band_min)/2.0 > ( self.options.ratio_range[1] - self.options.ratio_range[0])/2.0):
@@ -995,7 +1003,7 @@ class instack ():
                 print('ED DEBUG variable formula is %s'%variable.formula)
                 print("cutflow is :::::: ", _cutflow_)
                 tempStr = '*'.join(
-                                  [   _cutflow_,
+                                  [   '(' + _cutflow_ + ')',
                                       "%f" % self.options.kfactor,
                                       "%f" % self.options.intlumi,
                                       "%f" % sample.kfactor
@@ -1006,7 +1014,7 @@ class instack ():
                     'h_' + variable.name + variable.hist,
                     variable.formula,
                     '*'.join(
-                        [   _cutflow_,
+                        [   '(' + _cutflow_ + ')',
                             "%f" % self.options.kfactor,
                             "%f" % self.options.intlumi,
                             "%f" % sample.kfactor
@@ -1029,6 +1037,7 @@ class instack ():
                 return
 
             ROOT.gDirectory.ls()
+            print('samples.label', sample.label)
             print('checkcheck')
             print(sample.root_tree)
             print(variable.name)
@@ -1037,6 +1046,16 @@ class instack ():
             print('h_' + variable.name)
             print('end check 2')
             hist = ROOT.gDirectory.Get('h_' + variable.name )
+            if sample.label == 'data':
+                # clone the data tree
+                data_hist_clone = hist.Clone("data_hist_clone")
+            elif sample.label == 'background':
+                # pass
+                # scale MC to data
+                print('data_hist_clone.Integral()', data_hist_clone.Integral())
+                print('hist.Integral()', hist.Integral())
+                # scale_mc_data = data_hist_clone.Integral()/hist.Integral()
+                hist.Scale(data_hist_clone.Integral()/hist.Integral())
             #hist = sample.root_tree
             print('start check 3')
             # print(hist)
@@ -1058,6 +1077,7 @@ class instack ():
                 raise Exception,"missing histogram for variable.name %s" % variable.name
             
             if variable.norm and hist.Integral()!=0:
+                hist_before_norm = hist.Clone()
                 hist.Sumw2()
                 hist.Scale(1.0/hist.Integral())
             if hist.Integral() == 0 : logger.warning(' The Integral of the histogram is null, please check this variable: %s' % varkey)
@@ -1079,7 +1099,7 @@ class instack ():
                             '_'.join(['h',key, _sys_flip_, variable.name]) + variable.hist,
                             variable.formula,
                             '*'.join(
-                                [   _cutflow_,
+                                [   '(' + _cutflow_ + ')',
                                     "%f" % self.options.kfactor,
                                     "%f" % self.options.intlumi,
                                     "%f" % sample.kfactor
@@ -1091,7 +1111,7 @@ class instack ():
                         print "_h_syst_ ", _h_syst.GetEntries()
                         if variable.norm and _h_syst.Integral()!=0:
                             _h_syst.Sumw2()
-                            _h_syst.Scale(1.0/_h_syst.Integral())
+                            _h_syst.Scale(1.0/hist_before_norm.Integral())
                         print("sample.name ", sample.name)
                         print("ED DEBUG draw syst hist")
                         print("_h_syst_ ", _h_syst.GetEntries())
